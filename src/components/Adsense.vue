@@ -22,7 +22,7 @@ export default {
     adClient: {
       type: String,
       required: false,
-      default: "ca-pub-XXXXXXXXXXXXXXXX",
+      default: "ca-pub-9043961430295462",
     },
     adSlot: {
       type: String,

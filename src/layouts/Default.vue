@@ -34,7 +34,6 @@
                 <Adsense
                   ad-style="display:inline-block;width:250px;height:250px"
                   ad-format="rectangle"
-                  ad-client="ca-pub-9043961430295462"
                   ad-slot="1582513592"
                   ad-responsive="false"
                 />
@@ -95,7 +94,6 @@
             <!-- 横長レスポンシブ -->
             <Adsense
               ad-style="display:block"
-              ad-client="ca-pub-9043961430295462"
               ad-slot="3403340654"
               ad-responsive="true"
               ad-format="auto"
