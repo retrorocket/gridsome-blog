@@ -1,0 +1,17 @@
+{
+  "name": "my-blog",
+  "private": true,
+  "scripts": {
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "@gridsome/remark-prismjs": "^0.4.0",
+    "@gridsome/source-wordpress": "^0.5.3",
+    "gridsome": "^0.7.0",
+    "gridsome-plugin-feed": "^1.0.2",
+    "gridsome-plugin-rss": "^1.2.0",
+    "prismjs": "^1.21.0"
+  }
+}
