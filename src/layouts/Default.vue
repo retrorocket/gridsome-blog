@@ -185,22 +185,31 @@ export default {
     Headtitle,
   },
   mounted() {
-    this.$nextTick(() => {
-      try {
-        Prism.highlightAll();
-      } catch (error) {
-        console.error(error);
-      }
-    });
+    this.prismHighlightAll();
   },
   updated() {
-    this.$nextTick(() => {
-      try {
-        Prism.highlightAll();
-      } catch (error) {
-        console.error(error);
-      }
-    });
+    this.prismHighlightAll();
+  },
+  methods: {
+    prismHighlightAll() {
+      this.$nextTick(() => {
+        try {
+          Prism.highlightAll();
+        } catch (error) {
+          console.error(error);
+        }
+      });
+    },
+  },
+  metaInfo() {
+    return {
+      script: [
+        {
+          src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+          async: true,
+        },
+      ],
+    };
   },
 };
 </script>

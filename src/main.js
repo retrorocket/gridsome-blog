@@ -6,11 +6,6 @@ import '~/assets/style.css'
 import '~/assets/prism.css'
 
 export default function (Vue, { router, head, isClient }) {
-  head.script.push({
-    "data-ad-client": "ca-pub-9043961430295462",
-    src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
-    async: true
-  })
   head.link.push({
     rel: "alternate",
     type: "application/rss+xml",

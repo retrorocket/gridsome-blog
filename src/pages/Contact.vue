@@ -21,12 +21,37 @@
               <li>Twitter系のアプリの不具合の場合、Twitterのアカウント名を連絡してください。調査に使用します。</li>
               <li>返信が必要な場合はメールアドレスを連絡してください。</li>
             </ul>
-            <form action="https://getform.io/f/3707c1db-0940-4112-9fc3-c37d38be4fec" method="POST">
-              <input name="name" type="text" class="feedback-input" placeholder="お名前" />
-              <input name="email" type="text" class="feedback-input" placeholder="メールアドレス" />
-              <textarea name="text" class="feedback-input" placeholder="お問い合わせ内容（必須）" required></textarea>
-              <input type="submit" value="send" />
+            <form
+              v-on:submit.prevent="submit"
+              action="https://getform.io/f/3707c1db-0940-4112-9fc3-c37d38be4fec"
+              method="POST"
+            >
+              <input
+                name="name"
+                v-model="name"
+                type="text"
+                class="feedback-input"
+                placeholder="お名前"
+              />
+              <input
+                name="email"
+                v-model="email"
+                type="text"
+                class="feedback-input"
+                placeholder="メールアドレス"
+              />
+              <textarea
+                v-model="text"
+                name="text"
+                class="feedback-input"
+                placeholder="お問い合わせ内容（必須）"
+                required
+              ></textarea>
+              <input type="submit" value="Submit" :disabled="isSend" />
             </form>
+            <p style="font-weight:bold;" v-if="isProcessing">送信中...</p>
+            <p style="font-weight:bold;" v-if="isSend">お問い合わせ内容が送信されました。</p>
+            <p style="font-weight:bold;" v-if="isError">エラーが発生しました。再度送信をお試しください。</p>
           </div>
         </div>
       </article>
@@ -35,11 +60,49 @@
 </template>
 
 <script>
+import Axios from "axios";
+
 export default {
   metaInfo() {
     return {
       title: "contact",
     };
+  },
+  data() {
+    return {
+      isSend: false,
+      isError: false,
+      isProcessing: false,
+      name: "",
+      email: "",
+      text: "",
+    };
+  },
+  methods: {
+    submit() {
+      this.isProcessing = true;
+      const submitParams = new FormData();
+      submitParams.append("name", this.name);
+      submitParams.append("email", this.email);
+      submitParams.append("text", this.text);
+
+      Axios.post(
+        "https://getform.io/f/3707c1db-0940-4112-9fc3-c37d38be4fec",
+        submitParams
+      )
+        .then((res) => {
+          this.isSend = true;
+          this.isError = false;
+          this.isProcessing = false;
+        })
+        .catch((err) => {
+          this.isError = true;
+          this.isProcessing = false;
+          console.log("err:", err);
+        });
+      this.isSend = false;
+      this.isError = false;
+    },
   },
 };
 </script>
@@ -94,5 +157,9 @@ textarea {
 }
 [type="submit"]:hover {
   background: #618b96;
+}
+[type="submit"][disabled] {
+  background: #dcdcdc;
+  cursor: not-allowed;
 }
 </style>
