@@ -14,7 +14,7 @@ module.exports = {
     {
       use: "@gridsome/source-wordpress",
       options: {
-        baseUrl: "https://retrorocket.biz/", // required
+        baseUrl: process.env.API_URL,
         typeName: "blog",
         apiBase: 'wp-json',
         perPage: 10,
