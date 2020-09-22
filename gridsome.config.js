@@ -44,6 +44,20 @@ module.exports = {
         })
       }
     },
+    {
+      use: '@gridsome/plugin-sitemap',
+      options: {
+        cacheTime: 600000,
+        exclude: ["/archives/category/*"],
+        include: ['/archives/*'],
+        config: {
+          '/archives/*': {
+            changefreq: 'monthly',
+            priority: 0.8
+          },
+        }
+      }
+    }
   ],
   templates: {
     BlogCategory: "/archives/category/:slug",
