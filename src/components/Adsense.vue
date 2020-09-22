@@ -1,4 +1,9 @@
 <template>
+  <!-- 
+    See:
+    https://knote.dev/post/2020-04-19/gridsome-google-adsense/
+    https://gist.github.com/BeFiveINFO/e0f674479365f226a2816d30eab52b9f
+  -->
   <ins
     class="adsbygoogle"
     :data-ad-layout="adLayout"
