@@ -6,8 +6,8 @@ WordPressで書いた記事のMarkdown化が完了するまで、WordPressのAPI
 ## ブログのURL
 
 * https://retrorocket.biz
-  - Gridsomeでビルドした静的ファイルと、WordPressが共存しています。
-  - Webサーバ（nginx）の設定で、共存しているWordPressへのアクセスを禁止しています。
+  - 同じサーバ内にGridsomeでビルドした静的ファイルと、WordPressが共存しています。
+  - WordPressはHeadless CMSとして使用しています。
 
 # Default starter for Gridsome
 
