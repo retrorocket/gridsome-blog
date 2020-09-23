@@ -61,7 +61,7 @@
               <h4 class="widget-title">Recently</h4>
               <ul>
                 <li v-for="edge in $static.recently.edges" :key="edge.node.id">
-                  <router-link :to="{ path: edge.node.path }" append>{{ edge.node.title }}</router-link>
+                  <g-link :to="edge.node.path">{{ edge.node.title }}</g-link>
                   {{ edge.node.date }}
                 </li>
               </ul>
@@ -72,7 +72,7 @@
               <h4 class="widget-title">Categories</h4>
               <ul>
                 <li v-for="edge in $static.category.edges" :key="edge.node.id">
-                  <router-link :to="{ path: edge.node.path }" append>{{ edge.node.title }}</router-link>
+                  <g-link :to="edge.node.path">{{ edge.node.title }}</g-link>
                 </li>
               </ul>
             </div>
