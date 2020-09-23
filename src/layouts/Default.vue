@@ -56,6 +56,12 @@
               </div>
             </div>
           </section>
+          <section id="searchbox" class="widget">
+            <div class="widget-wrap">
+              <h4 class="widget-title">Search</h4>
+              <SearchBox />
+            </div>
+          </section>
           <section id="recent-posts-2" class="widget widget-4 odd widget_recent_entries">
             <div class="widget-wrap">
               <h4 class="widget-title">Recently</h4>
@@ -176,6 +182,7 @@ import Prism from "~/assets/prism.js";
 import Headtitle from "~/components/Headtitle.vue";
 import Headnav from "~/components/Headnav.vue";
 import Credit from "~/components/Credit.vue";
+import SearchBox from "~/components/SearchBox.vue";
 
 export default {
   components: {
@@ -183,6 +190,7 @@ export default {
     Headnav,
     Credit,
     Headtitle,
+    SearchBox,
   },
   mounted() {
     this.prismHighlightAll();

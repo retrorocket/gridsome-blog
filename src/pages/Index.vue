@@ -19,7 +19,7 @@
         <div class="entry-wrap">
           <header class="entry-header">
             <h2 class="entry-title" itemprop="headline">
-              <g-link :to="edge.node.path">{{ edge.node.title }}</g-link>
+              <g-link :to="edge.node.path" v-html="edge.node.title"></g-link>
             </h2>
             <div class="entry-meta">
               <span class="entry-time">{{ edge.node.date }}</span>

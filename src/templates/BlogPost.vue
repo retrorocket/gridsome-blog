@@ -16,7 +16,7 @@
       >
         <div class="entry-wrap">
           <header class="entry-header">
-            <h1 class="entry-title" itemprop="headline">{{ $page.blogPost.title }}</h1>
+            <h1 class="entry-title" itemprop="headline" v-html="$page.blogPost.title" />
             <div class="entry-meta">
               <span class="entry-time">{{ $page.blogPost.date }}</span>
               by りゅー
@@ -24,7 +24,7 @@
             <!-- .entry-meta -->
           </header>
           <!-- .entry-header -->
-          <div class="entry-content" itemprop="articleBody" v-html="$page.blogPost.content"></div>
+          <div class="entry-content" itemprop="articleBody" v-html="$page.blogPost.content" />
           <footer class="entry-footer">
             <div class="entry-meta">
               <span class="entry-terms category" itemprop="articleSection">

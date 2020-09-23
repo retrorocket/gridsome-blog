@@ -14,7 +14,9 @@
           <div class="entry-content" itemprop="text">
             <ul class="post-list">
               <li v-for="{ node } in $page.blogCategory.belongsTo.edges" :key="node.id">
-                <g-link :to="node.path">{{ node.title }}</g-link>
+                <g-link :to="node.path">
+                  <span v-html="node.title" />
+                </g-link>
                 {{node.date}}
               </li>
             </ul>
