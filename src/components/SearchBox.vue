@@ -48,7 +48,7 @@ export default {
       if (this.index === null) return [];
       return this.index.search({
         query: this.searchTerm,
-        limit: 5,
+        limit: 10,
       });
     },
   },
