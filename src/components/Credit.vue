@@ -1,6 +1,9 @@
 <template>
   <div>
-    <p class="copyright">Copyright &#169; 2020 return $lock;.</p>
+    <p class="copyright">
+      Copyright &#169; 2020 return $lock;. |
+      <g-link to="/privacy">プライバシーポリシー</g-link>
+    </p>
 
     <p class="credit">
       Blog Theme by
