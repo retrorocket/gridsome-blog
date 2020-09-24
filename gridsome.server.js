@@ -5,6 +5,14 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 const { tokenize } = require("kuromojin")
+const fs = require("fs-extra")
+const CACHE_PATH = "./src/.cache/keywords.json"
+
+const data = fs.readJsonSync(CACHE_PATH, {
+  encoding: 'utf-8',
+  reviver: null,
+  throws: true
+});
 
 module.exports = function (api) {
   api.loadSource(({ addSchemaResolvers }) => {
@@ -13,6 +21,12 @@ module.exports = function (api) {
         keywords: {
           type: "String",
           resolve(node) {
+            // keywordsを生成済みの記事はキャッシュを参照する
+            for (let i in data) {
+              if (data[i].id === node.id) {
+                return data[i].keyword
+              }
+            }
             const POS_LIST = ["名詞", "動詞", "形容詞"] // 対象品詞
             const IGNORE_REGEX = /^[!-/:-@[-`{-~、-〜”’・]+$/ //半角記号のみ
             const MIN_LENGTH = 2 // 最低文字数
@@ -24,7 +38,17 @@ module.exports = function (api) {
               const keywords = [...new Set(allTokens)]
                 .filter(word => !IGNORE_REGEX.test(word))
                 .filter(word => word.length >= MIN_LENGTH)
-              return keywords.join(' ');
+              const keywordStr = keywords.join(' ')
+              data.push({ id: node.id, keyword: keywordStr })
+              fs.writeJsonSync(CACHE_PATH, data,
+                {
+                  encoding: 'utf-8',
+                  replacer: null,
+                  spaces: null
+                },
+                function (err) {
+                });
+              return keywordStr;
             })
           },
         },
