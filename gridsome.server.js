@@ -4,17 +4,16 @@
 
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
-const { tokenize } = require(`kuromojin`)
+const { tokenize } = require("kuromojin")
 
 module.exports = function (api) {
-  api.loadSource(({ getCollection, addSchemaResolvers }) => {
-    const allPosts = getCollection(`BlogPost`)
+  api.loadSource(({ addSchemaResolvers }) => {
     addSchemaResolvers({
       BlogPost: {
         keywords: {
-          type: `String`,
+          type: "String",
           resolve(node) {
-            const POS_LIST = [`名詞`, `動詞`, `形容詞`] // 対象品詞
+            const POS_LIST = ["名詞", "動詞", "形容詞"] // 対象品詞
             const IGNORE_REGEX = /^[!-/:-@[-`{-~、-〜”’・]+$/ //半角記号のみ
             const MIN_LENGTH = 2 // 最低文字数
             const str = node.title + node.content.replace(/<\/?[^>]+>/gi, ""); // html tag除外
