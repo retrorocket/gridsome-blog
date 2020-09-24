@@ -6,10 +6,25 @@
   -->
   <div class="widget_search">
     <p>
-      <input type="search" class="search-field" placeholder="Search ..." v-model="searchTerm" />
+      <input
+        type="search"
+        class="search-field"
+        placeholder="Search ..."
+        v-model="searchTerm"
+      />
     </p>
-    <ul>
-      <li v-for="result in searchResults" :key="result.index">
+    <p v-if="searchResults.length > 5 && !showMore">
+      <button @click="showMore = true">検索結果を全て表示する</button>
+    </p>
+    <ul v-if="!showMore">
+      <li v-for="result in searchResults.slice(0, 5)" :key="result.id">
+        <g-link :to="result.path">
+          <span v-html="result.title" />
+        </g-link>
+      </li>
+    </ul>
+    <ul v-else>
+      <li v-for="result in searchResults" :key="result.id">
         <g-link :to="result.path">
           <span v-html="result.title" />
         </g-link>
@@ -38,6 +53,7 @@ import Flexsearch from "flexsearch";
 export default {
   data() {
     return {
+      showMore: false,
       searchTerm: "",
       index: null,
     };
@@ -45,10 +61,11 @@ export default {
   computed: {
     // 検索結果を返す算出プロパティ
     searchResults() {
+      this.showMore = false;
       if (this.index === null) return [];
       return this.index.search({
         query: this.searchTerm,
-        limit: 10,
+        limit: 100,
       });
     },
   },
