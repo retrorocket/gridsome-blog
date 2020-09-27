@@ -6,8 +6,11 @@
     </p>
 
     <p class="credit">
-      Blog Theme by
-      <a class="theme-link" href="https://themehall.com" title="ThemeHall">ThemeHall</a>
+      made with
+      <a class="theme-link" href="https://gridsome.org/">Gridsome</a> | theme by
+      <a class="theme-link" href="https://themehall.com" title="ThemeHall"
+        >ThemeHall</a
+      >
     </p>
   </div>
 </template>

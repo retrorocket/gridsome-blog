@@ -17,6 +17,7 @@
     "gridsome-plugin-feed": "^1.0.2",
     "gridsome-plugin-rss": "^1.2.0",
     "kuromojin": "^2.0.0",
+    "medium-zoom": "^1.0.6",
     "prismjs": "^1.21.0"
   }
 }

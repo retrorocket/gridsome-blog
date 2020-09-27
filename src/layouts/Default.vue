@@ -14,7 +14,10 @@
           itemscope
           itemtype="https://schema.org/WPSideBar"
         >
-          <section id="text-2" class="widget widget-1 even widget-first widget_text">
+          <section
+            id="text-2"
+            class="widget widget-1 even widget-first widget_text"
+          >
             <div class="widget-wrap">
               <h4 class="widget-title">Information</h4>
               <div class="textwidget">
@@ -27,7 +30,10 @@
               </div>
             </div>
           </section>
-          <section id="custom_html-2" class="widget_text widget widget-2 odd widget_custom_html">
+          <section
+            id="custom_html-2"
+            class="widget_text widget widget-2 odd widget_custom_html"
+          >
             <div class="widget_text widget-wrap">
               <h4 class="widget-title">Sponsored Links</h4>
               <div>
@@ -52,7 +58,8 @@
                 <br />Amazon.co.jp
                 <a
                   href="https://www.amazon.co.jp/%E3%83%90%E3%83%B3%E3%83%80%E3%82%A4-BANDAI-7031400-%E3%83%A2%E3%83%B3%E3%82%B9%E3%83%BC%E3%83%8E-%E3%83%AD%E3%83%83%E3%82%AF/dp/B008B4AOSA/ref=as_li_ss_tl?ie=UTF8&qid=1552906381&sr=8-4&keywords=%E3%83%A2%E3%83%B3%E3%82%B9%E3%83%BC%E3%83%8E&linkCode=ll1&tag=retrorocket00-22&linkId=ac0f44818ff0a76e78dbf37b3141f135&language=ja_JP"
-                >モンスーノ ロック</a>
+                  >モンスーノ ロック</a
+                >
               </div>
             </div>
           </section>
@@ -62,7 +69,10 @@
               <SearchBox />
             </div>
           </section>
-          <section id="recent-posts-2" class="widget widget-4 odd widget_recent_entries">
+          <section
+            id="recent-posts-2"
+            class="widget widget-4 odd widget_recent_entries"
+          >
             <div class="widget-wrap">
               <h4 class="widget-title">Recently</h4>
               <ul>
@@ -73,7 +83,10 @@
               </ul>
             </div>
           </section>
-          <section id="categories-2" class="widget widget-6 odd widget-last widget_categories">
+          <section
+            id="categories-2"
+            class="widget widget-6 odd widget-last widget_categories"
+          >
             <div class="widget-wrap">
               <h4 class="widget-title">Categories</h4>
               <ul>
@@ -96,7 +109,7 @@
       <div class="wrap">
         <div class="footer-content footer-insert">
           <Credit />
-          <p class="ad" style="clear:both;padding-top:20px;">
+          <p class="ad" style="clear: both; padding-top: 20px">
             <!-- 横長レスポンシブ -->
             <Adsense
               ad-style="display:block"
@@ -183,6 +196,7 @@ import Headtitle from "~/components/Headtitle.vue";
 import Headnav from "~/components/Headnav.vue";
 import Credit from "~/components/Credit.vue";
 import SearchBox from "~/components/SearchBox.vue";
+import MediumZoom from "medium-zoom";
 
 export default {
   components: {
@@ -194,15 +208,32 @@ export default {
   },
   mounted() {
     this.prismHighlightAll();
+    this.zoomImg();
   },
   updated() {
     this.prismHighlightAll();
+    this.zoomImg();
   },
   methods: {
     prismHighlightAll() {
       this.$nextTick(() => {
         try {
           Prism.highlightAll();
+        } catch (error) {
+          console.error(error);
+        }
+      });
+    },
+    zoomImg() {
+      this.$nextTick(() => {
+        try {
+          const images = this.$el.querySelectorAll(".entry-wrap a img");
+          images.forEach(function (image) {
+            const origin = image.parentNode.href;
+            image.setAttribute("data-zoom-src", origin);
+            image.parentNode.parentNode.insertBefore(image, image.parentNode);
+          });
+          MediumZoom(".entry-wrap img");
         } catch (error) {
           console.error(error);
         }
