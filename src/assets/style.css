@@ -936,7 +936,7 @@ span.post_tag::before {
   display: inline-block;
 }
 
-.pagination .current {
+.pagination .active {
   background-color: #F5F5F5;
 }
 

@@ -227,13 +227,13 @@ export default {
     zoomImg() {
       this.$nextTick(() => {
         try {
-          const images = this.$el.querySelectorAll(".entry-wrap a img");
+          const images = document.querySelectorAll(".entry-wrap a img");
           images.forEach(function (image) {
             const origin = image.parentNode.href;
-            image.setAttribute("data-zoom-src", origin);
+            image.dataset.zoomSrc = origin;
             image.parentNode.parentNode.insertBefore(image, image.parentNode);
           });
-          MediumZoom(".entry-wrap img");
+          MediumZoom(document.querySelectorAll(".entry-wrap img"));
         } catch (error) {
           console.error(error);
         }
