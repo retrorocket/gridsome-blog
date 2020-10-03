@@ -48,7 +48,7 @@ module.exports = {
       use: '@gridsome/plugin-sitemap',
       options: {
         cacheTime: 600000,
-        exclude: ["/archives/category/*"],
+        exclude: ["/archives/category/*", "/archives/date/*"],
         include: ['/archives/*'],
         config: {
           '/archives/*': {

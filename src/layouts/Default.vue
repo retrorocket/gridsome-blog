@@ -100,13 +100,11 @@
                 :key="`y-${yindex}`"
                 class="monthly_archives"
               >
-                <h6 style="margin-bottom: 5px">
-                  <a
-                    @click="toggle(year)"
-                    href="#"
-                    v-bind:class="{ isclicked: showList.indexOf(year) >= 0 }"
-                    >» {{ year }}</a
-                  >
+                <h6
+                  v-bind:class="{ isclicked: showList.indexOf(year) >= 0 }"
+                  @click="toggle(year)"
+                >
+                  » {{ year }}
                 </h6>
                 <div
                   class="monthly_archives_list"
@@ -232,20 +230,19 @@ pre .google-auto-placed {
 .entry-wrap .google-auto-placed {
   margin-bottom: 30px;
 }
-.monthly_archives h6 a {
+.monthly_archives h6 {
   color: #333;
-  text-decoration: none;
+  cursor: pointer;
+  margin-bottom: 10px;
 }
-.monthly_archives h6 a.isclicked {
+.monthly_archives h6.isclicked {
   color: #75b5c5;
-  text-decoration: none;
 }
-.monthly_archives h6 a:hover {
+.monthly_archives h6:hover {
   color: #75b5c5;
-  text-decoration: none;
 }
 .monthly_archives_list {
-  padding-bottom: 10px;
+  padding-bottom: 15px;
 }
 .monthly_archives_list_link {
   display: inline-block;
