@@ -93,42 +93,7 @@
           <section id="archives-2" class="widget widget-last">
             <div class="widget-wrap">
               <h4 class="widget-title">Archives</h4>
-              <div
-                v-for="(year, yindex) in new Set(
-                  $static.years.edges.map((e) => e.node.year)
-                )"
-                :key="`y-${yindex}`"
-                class="monthly-archives"
-              >
-                <h6
-                  v-bind:class="{ isclicked: showList.indexOf(year) >= 0 }"
-                  @click="toggle(year)"
-                >
-                  » {{ year }}
-                </h6>
-                <div
-                  class="monthly-archives-list"
-                  v-show="showList.indexOf(year) >= 0"
-                >
-                  <g-link
-                    class="monthly-archives-list-link"
-                    v-for="(month, mindex) in new Set(
-                      $static.years.edges
-                        .map((e) => e.node.month)
-                        .filter((e) => e.indexOf(year) === 0)
-                        .reverse()
-                    )"
-                    :key="`m-${mindex}`"
-                    :to="`/archives/date/${month}`"
-                    >{{ month.slice(-2) }}</g-link
-                  >
-                  <g-link
-                    class="monthly-archives-list-link"
-                    :to="`/archives/date/${year}`"
-                    >all</g-link
-                  >
-                </div>
-              </div>
+              <Yearslist />
             </div>
           </section>
         </aside>
@@ -181,14 +146,6 @@ query {
       }
     }
   }
-  years: allBlogPost(sortBy: "published_at", order: ASC) {
-    edges { 
-      node { 
-        year: date(format: "YYYY")
-        month: date(format: "YYYY/MM")
-      }
-    }
-  }
 }
 </static-query>
 
@@ -230,25 +187,6 @@ pre .google-auto-placed {
 .entry-wrap .google-auto-placed {
   margin-bottom: 30px;
 }
-.monthly-archives h6 {
-  color: #333;
-  cursor: pointer;
-  margin-bottom: 10px;
-}
-.monthly-archives h6.isclicked {
-  color: #75b5c5;
-}
-.monthly-archives h6:hover {
-  color: #75b5c5;
-}
-.monthly-archives-list {
-  padding-bottom: 15px;
-}
-.monthly-archives-list-link {
-  display: inline-block;
-  width: 20px;
-  margin-right: 8px;
-}
 </style>
 
 <script>
@@ -258,6 +196,7 @@ import Headtitle from "~/components/Headtitle.vue";
 import Headnav from "~/components/Headnav.vue";
 import Credit from "~/components/Credit.vue";
 import SearchBox from "~/components/SearchBox.vue";
+import Yearslist from "~/components/Yearslist.vue";
 import MediumZoom from "medium-zoom";
 
 export default {
@@ -267,9 +206,7 @@ export default {
     Credit,
     Headtitle,
     SearchBox,
-  },
-  data() {
-    return { showList: [] };
+    Yearslist,
   },
   mounted() {
     this.prismHighlightAll();
@@ -303,13 +240,6 @@ export default {
           console.error(error);
         }
       });
-    },
-    toggle(data) {
-      if (this.showList.indexOf(data) >= 0) {
-        this.showList = this.showList.filter((n) => n !== data);
-      } else {
-        this.showList.push(data);
-      }
     },
   },
   metaInfo() {
