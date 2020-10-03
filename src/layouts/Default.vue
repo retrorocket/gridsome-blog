@@ -69,10 +69,7 @@
               <SearchBox />
             </div>
           </section>
-          <section
-            id="recent-posts-2"
-            class="widget widget-4 odd widget_recent_entries"
-          >
+          <section id="recent-posts-2" class="widget widget_recent_entries">
             <div class="widget-wrap">
               <h4 class="widget-title">Recently</h4>
               <ul>
@@ -83,10 +80,7 @@
               </ul>
             </div>
           </section>
-          <section
-            id="categories-2"
-            class="widget widget-6 odd widget-last widget_categories"
-          >
+          <section id="categories-2" class="widget widget_categories">
             <div class="widget-wrap">
               <h4 class="widget-title">Categories</h4>
               <ul>
@@ -94,6 +88,49 @@
                   <g-link :to="edge.node.path">{{ edge.node.title }}</g-link>
                 </li>
               </ul>
+            </div>
+          </section>
+          <section id="archives-2" class="widget widget-last">
+            <div class="widget-wrap">
+              <h4 class="widget-title">Archives</h4>
+              <div
+                v-for="(year, yindex) in new Set(
+                  $static.years.edges.map((e) => e.node.year)
+                )"
+                :key="`y-${yindex}`"
+                class="monthly_archives"
+              >
+                <h6 style="margin-bottom: 5px">
+                  <a
+                    @click="toggle(year)"
+                    href="#"
+                    v-bind:class="{ isclicked: showList.indexOf(year) >= 0 }"
+                    >» {{ year }}</a
+                  >
+                </h6>
+                <div
+                  class="monthly_archives_list"
+                  v-show="showList.indexOf(year) >= 0"
+                >
+                  <g-link
+                    class="monthly_archives_list_link"
+                    v-for="(month, mindex) in new Set(
+                      $static.years.edges
+                        .map((e) => e.node.month)
+                        .filter((e) => e.indexOf(year) === 0)
+                        .reverse()
+                    )"
+                    :key="`m-${mindex}`"
+                    :to="`/archives/date/${month}`"
+                    >{{ month.slice(-2) }}</g-link
+                  >
+                  <g-link
+                    class="monthly_archives_list_link"
+                    :to="`/archives/date/${year}`"
+                    >all</g-link
+                  >
+                </div>
+              </div>
             </div>
           </section>
         </aside>
@@ -146,6 +183,14 @@ query {
       }
     }
   }
+  years: allBlogPost(sortBy: "published_at", order: ASC) {
+    edges { 
+      node { 
+        year: date(format: "YYYY")
+        month: date(format: "YYYY/MM")
+      }
+    }
+  }
 }
 </static-query>
 
@@ -187,6 +232,26 @@ pre .google-auto-placed {
 .entry-wrap .google-auto-placed {
   margin-bottom: 30px;
 }
+.monthly_archives h6 a {
+  color: #333;
+  text-decoration: none;
+}
+.monthly_archives h6 a.isclicked {
+  color: #75b5c5;
+  text-decoration: none;
+}
+.monthly_archives h6 a:hover {
+  color: #75b5c5;
+  text-decoration: none;
+}
+.monthly_archives_list {
+  padding-bottom: 10px;
+}
+.monthly_archives_list_link {
+  display: inline-block;
+  width: 20px;
+  margin-right: 8px;
+}
 </style>
 
 <script>
@@ -205,6 +270,9 @@ export default {
     Credit,
     Headtitle,
     SearchBox,
+  },
+  data() {
+    return { showList: [] };
   },
   mounted() {
     this.prismHighlightAll();
@@ -238,6 +306,13 @@ export default {
           console.error(error);
         }
       });
+    },
+    toggle(data) {
+      if (this.showList.indexOf(data) >= 0) {
+        this.showList = this.showList.filter((n) => n !== data);
+      } else {
+        this.showList.push(data);
+      }
     },
   },
   metaInfo() {
