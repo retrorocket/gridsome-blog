@@ -98,7 +98,7 @@
                   $static.years.edges.map((e) => e.node.year)
                 )"
                 :key="`y-${yindex}`"
-                class="monthly_archives"
+                class="monthly-archives"
               >
                 <h6
                   v-bind:class="{ isclicked: showList.indexOf(year) >= 0 }"
@@ -107,11 +107,11 @@
                   » {{ year }}
                 </h6>
                 <div
-                  class="monthly_archives_list"
+                  class="monthly-archives-list"
                   v-show="showList.indexOf(year) >= 0"
                 >
                   <g-link
-                    class="monthly_archives_list_link"
+                    class="monthly-archives-list-link"
                     v-for="(month, mindex) in new Set(
                       $static.years.edges
                         .map((e) => e.node.month)
@@ -123,7 +123,7 @@
                     >{{ month.slice(-2) }}</g-link
                   >
                   <g-link
-                    class="monthly_archives_list_link"
+                    class="monthly-archives-list-link"
                     :to="`/archives/date/${year}`"
                     >all</g-link
                   >
@@ -230,21 +230,21 @@ pre .google-auto-placed {
 .entry-wrap .google-auto-placed {
   margin-bottom: 30px;
 }
-.monthly_archives h6 {
+.monthly-archives h6 {
   color: #333;
   cursor: pointer;
   margin-bottom: 10px;
 }
-.monthly_archives h6.isclicked {
+.monthly-archives h6.isclicked {
   color: #75b5c5;
 }
-.monthly_archives h6:hover {
+.monthly-archives h6:hover {
   color: #75b5c5;
 }
-.monthly_archives_list {
+.monthly-archives-list {
   padding-bottom: 15px;
 }
-.monthly_archives_list_link {
+.monthly-archives-list-link {
   display: inline-block;
   width: 20px;
   margin-right: 8px;
