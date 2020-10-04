@@ -6,6 +6,7 @@ import '~/assets/style.css'
 import '~/assets/prism.css'
 
 export default function (Vue, { router, head, isClient }) {
+  head.htmlAttrs = { lang: 'ja' }
   head.link.push({
     rel: "alternate",
     type: "application/rss+xml",

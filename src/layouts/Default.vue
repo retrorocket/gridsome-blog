@@ -190,14 +190,14 @@ pre .google-auto-placed {
 </style>
 
 <script>
-import Adsense from "~/components/Adsense.vue";
+import MediumZoom from "medium-zoom";
 import Prism from "~/assets/prism.js";
+import Adsense from "~/components/Adsense.vue";
 import Headtitle from "~/components/Headtitle.vue";
 import Headnav from "~/components/Headnav.vue";
 import Credit from "~/components/Credit.vue";
 import SearchBox from "~/components/SearchBox.vue";
 import Yearslist from "~/components/Yearslist.vue";
-import MediumZoom from "medium-zoom";
 
 export default {
   components: {
