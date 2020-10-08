@@ -1,5 +1,6 @@
 <template>
   <Layout>
+    <Readprogress />
     <main
       class="content"
       id="content"
@@ -74,7 +75,11 @@ query BlogPost($path: String){
 </page-query>
 
 <script>
+import Readprogress from "~/components/Readprogress.vue";
 export default {
+  components: {
+    Readprogress,
+  },
   metaInfo() {
     return {
       link: [
