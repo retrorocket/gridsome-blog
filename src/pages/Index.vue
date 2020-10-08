@@ -1,5 +1,6 @@
 <template>
   <Layout>
+    <Readprogress />
     <main
       class="content"
       id="content"
@@ -66,10 +67,11 @@
 
 <script>
 import { Pager } from "gridsome";
-
+import Readprogress from "~/components/Readprogress.vue";
 export default {
   components: {
     Pager,
+    Readprogress,
   },
   metaInfo: {
     titleTemplate: "",
