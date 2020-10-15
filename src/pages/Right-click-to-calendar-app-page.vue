@@ -19,7 +19,7 @@
               選択したテキストをGoogleカレンダーに投稿できる拡張です。
               <br />ブラウザ上で日付を含むテキスト選択して右クリックすると、コンテキストメニューからGoogleカレンダーに予定を投稿することが出来ます。
               <br />日時等、正規表現で判別できる部分は自動で入力されます。判別に使用する正規表現はユーザが編集可能です（ベータ）
-              <br />初回のみオプションページからOAuth認証を行ってください。
+              <br />初回のみオプションページからOAuthによるアプリケーションの承認を行ってください。
               <br />
               <a
                 href="https://chrome.google.com/webstore/detail/right-click-to-calendar/femihkgadmhfmdlkjjfjcgleppfggadk?hl=ja"
