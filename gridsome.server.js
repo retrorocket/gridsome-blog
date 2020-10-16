@@ -6,7 +6,7 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 const { tokenize } = require("kuromojin")
 const fs = require("fs-extra")
-const CACHE_PATH = "./src/.cache/keywords.json"
+const CACHE_PATH = "./src/cache/keywords.json"
 
 const data = fs.readJsonSync(CACHE_PATH, {
   encoding: 'utf-8',
