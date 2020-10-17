@@ -5,9 +5,9 @@ on:
   repository_dispatch:
     types: 
       - build
-  push:
-    branches:
-      - feature/add-build-webhook
+  # push:
+    # branches:
+      # - feature/add-build-webhook
 
 jobs:
   build:
