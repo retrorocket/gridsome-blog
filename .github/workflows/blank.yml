@@ -16,6 +16,12 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+    - name: echo env
+      run: echo "${{ secrets.API_URL }}" > .env
+    - name: Install modules
+      run: yarn
+    - name: Run build
+      run: gridsome build
     - name: Setup Git Config
       run: |
         git config --local user.email "1858830+retrorocket@users.noreply.github.com"
