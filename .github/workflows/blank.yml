@@ -21,5 +21,6 @@ jobs:
         git config --local user.email "1858830+retrorocket@users.noreply.github.com"
         git config --local user.name "retrorocket"
     - name: Commit files
+      continue-on-error: true
       run: |
-        git add . && git commit -m "Update from Actions" -a ; git pull ; git push origin master
+        git add . && git commit -m "Update from Actions" -a ; git push origin master
