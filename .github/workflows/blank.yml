@@ -18,12 +18,10 @@ jobs:
       uses: actions/checkout@v2
     - name: echo env
       run: echo "${{ secrets.API_URL }}" > .env
-    - name: Install Gridsome
-      run: yarn global add @gridsome/cli 
     - name: Install modules
       run: yarn
     - name: Run build
-      run:  ./node_modules/bin/gridsome build
+      run:  ./node_modules/.bin/gridsome build
     - name: Setup Git Config
       run: |
         git config --local user.email "1858830+retrorocket@users.noreply.github.com"
