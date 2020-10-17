@@ -21,7 +21,7 @@ jobs:
     - name: Install modules
       run: yarn
     - name: Run build
-      run:  ./node_modules/.bin/gridsome build
+      run:  ./node_modules/.bin/gridsome build > /dev/null
     - name: rsync deployments
       uses: burnett01/rsync-deployments@4.1
       with:
