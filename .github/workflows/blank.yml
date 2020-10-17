@@ -1,0 +1,25 @@
+# This is a basic workflow to help you get started with Actions
+name: webhook-trigger
+
+on:
+  repository_dispatch:
+    types: 
+      - build
+  push:
+    branches:
+      - feature/add-build-webhook
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup Git Config
+      run: |
+        git config --local user.email "1858830+retrorocket@users.noreply.github.com"
+        git config --local user.name "retrorocket"
+    - name: Commit files
+      run: |
+        git add . && git commit -m "Update from Actions" -a ; git pull ; git push origin master
