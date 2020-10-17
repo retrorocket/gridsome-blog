@@ -7,13 +7,14 @@
     "explore": "gridsome explore"
   },
   "dependencies": {
+    "@gridsome/cli": "^0.3.4",
     "@gridsome/plugin-sitemap": "^0.4.0",
     "@gridsome/remark-prismjs": "^0.4.0",
     "@gridsome/source-wordpress": "^0.5.3",
     "axios": "^0.20.0",
     "dotenv": "^8.2.0",
     "flexsearch": "^0.6.32",
-    "gridsome": "^0.7.0",
+    "gridsome": "^0.7.21",
     "gridsome-plugin-feed": "^1.0.2",
     "gridsome-plugin-rss": "^1.2.0",
     "kuromojin": "^2.0.0",

@@ -4300,7 +4300,7 @@ gridsome-plugin-rss@^1.2.0:
   dependencies:
     rss "^1.2.2"
 
-gridsome@^0.7.0:
+gridsome@^0.7.21:
   version "0.7.21"
   resolved "https://registry.yarnpkg.com/gridsome/-/gridsome-0.7.21.tgz#8f1ed742a14ee2a88c0286b0d3e623d509d334f2"
   integrity sha512-PtdVorQDpihsgr4IXeLH6QTySiPVNhadnSjEgQP8zfY+2Ir7goifPpIohOBT65nXJj/j7to9f429PSDTlJUe7w==
