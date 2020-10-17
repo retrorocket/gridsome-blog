@@ -1,7 +1,7 @@
 # このプロジェクトは何？
 
 [Gridsome](https://gridsome.org/)を使用して、WordPressを静的にホスティングするためのプロジェクトです。  
-WordPressで書いた記事のMarkdown化が完了するまで、WordPressのAPIから記事を取得してGridsomeでビルドしています。
+WordPressのAPIから記事を取得してGridsomeでビルドしています。
 
 ## ブログのURL
 
