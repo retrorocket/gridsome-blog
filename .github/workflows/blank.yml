@@ -18,6 +18,8 @@ jobs:
       uses: actions/checkout@v2
     - name: echo env
       run: echo "${{ secrets.API_URL }}" > .env
+    - name: Install Gridsome
+      run: yarn global add @gridsome/cli 
     - name: Install modules
       run: yarn
     - name: Run build
