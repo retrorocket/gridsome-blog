@@ -4,11 +4,11 @@ name: webhook-trigger
 on:
   workflow_dispatch:
   repository_dispatch:
-    types: 
+    types:
       - build
-  #push:
-  #  branches:
-  #    - master
+  push:
+    branches:
+      - master
 
 jobs:
   build:
