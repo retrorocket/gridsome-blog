@@ -14,7 +14,9 @@ const data = fs.readJsonSync(CACHE_PATH, {
   throws: true
 });
 
-module.exports = function (api) {
+const length = data.length;
+
+module.exports = api => {
   api.loadSource(({ addSchemaResolvers }) => {
     addSchemaResolvers({
       BlogPost: {
@@ -39,14 +41,16 @@ module.exports = function (api) {
                 .filter(word => !IGNORE_REGEX.test(word))
                 .filter(word => word.length >= MIN_LENGTH)
               const keywordStr = keywords.join(' ')
-              data.push({ id: node.id, keyword: keywordStr })
+              if (data.unshift({ id: node.id, keyword: keywordStr }) > length + 1) {
+                return keywordStr;
+              }
               fs.writeJsonSync(CACHE_PATH, data,
                 {
                   encoding: 'utf-8',
                   replacer: null,
-                  spaces: null
+                  spaces: "  "
                 },
-                function (err) {
+                err => {
                 });
               return keywordStr;
             })
