@@ -14,7 +14,7 @@ const data = fs.readJsonSync(CACHE_PATH, {
   throws: true
 });
 
-const length = data.length;
+const keywordCount = data.length;
 
 module.exports = api => {
   api.loadSource(({ addSchemaResolvers }) => {
@@ -44,7 +44,7 @@ module.exports = api => {
                 .filter(word => !IGNORE_REGEX.test(word))
                 .filter(word => word.length >= MIN_LENGTH)
               const keywordStr = keywords.join(' ')
-              if (data.unshift({ id: node.id, keyword: keywordStr }) > length + 1) {
+              if (data.unshift({ id: node.id, keyword: keywordStr }) > keywordCount + 1) {
                 return keywordStr;
               }
               fs.writeJsonSync(CACHE_PATH, data,
