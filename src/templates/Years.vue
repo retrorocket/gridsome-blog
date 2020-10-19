@@ -34,7 +34,6 @@ query PostsByDate($periodStartDate: Date, $periodEndDate: Date) {
   years: allBlogPost(filter: {date: {between: [$periodStartDate, $periodEndDate]} }) {
     edges {
       node {
-        slug
         id
         title
         path
