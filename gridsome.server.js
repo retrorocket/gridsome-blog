@@ -76,7 +76,7 @@ module.exports = api => {
       }
     }`)
 
-    // See: https://miobiki.com/gatsbyjs-archive-page/
+    // See: https://qiita.com/kyohei8/items/c112a49359e9ca360393
     const years = new Set();
     const yearMonths = new Set();
 
