@@ -26,7 +26,7 @@ module.exports = api => {
         keywords: {
           type: "String",
           resolve(node) {
-            // keywordsを生成済みの記事はキャッシュを参照する
+            // keywordsを生成済みの記事はキャッシュのjsonファイルを参照する
             for (let i in data) {
               if (data[i].id === node.id) {
                 return data[i].keyword
