@@ -18,6 +18,9 @@ const length = data.length;
 
 module.exports = api => {
   api.loadSource(({ addSchemaResolvers }) => {
+    // See:
+    // https://www.broadleaves.dev/posts/2019-08-03-gridsome-flexsearch/
+    // https://blog.solunita.net/posts/develop-blog-by-gridsome-from-scratch-full-text-search/
     addSchemaResolvers({
       BlogPost: {
         keywords: {
@@ -73,6 +76,7 @@ module.exports = api => {
       }
     }`)
 
+    // See: https://miobiki.com/gatsbyjs-archive-page/
     const years = new Set();
     const yearMonths = new Set();
 
