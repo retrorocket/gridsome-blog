@@ -13,8 +13,9 @@
       >
         » {{ year }}
       </h6>
-      <div class="monthly-archives-list" v-show="showList.indexOf(year) >= 0">
-        <g-link
+
+      <ul class="monthly-archives-list" v-show="showList.indexOf(year) >= 0">
+        <li
           class="monthly-archives-list-link"
           v-for="(month, mindex) in new Set(
             $static.years.edges
@@ -23,15 +24,13 @@
               .reverse()
           )"
           :key="`m-${mindex}`"
-          :to="`/archives/date/${month}`"
-          >{{ month.slice(-2) }}</g-link
         >
-        <g-link
-          class="monthly-archives-list-link"
-          :to="`/archives/date/${year}`"
-          >all</g-link
-        >
-      </div>
+          <g-link :to="`/archives/date/${month}`">{{ month.slice(-2) }}</g-link>
+        </li>
+        <li class="monthly-archives-list-link">
+          <g-link :to="`/archives/date/${year}`">all</g-link>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -53,7 +52,7 @@ query {
 .monthly-archives h6 {
   color: #333;
   cursor: pointer;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 .monthly-archives h6.isclicked {
   color: #75b5c5;
@@ -62,11 +61,12 @@ query {
   color: #75b5c5;
 }
 .monthly-archives-list {
-  padding-bottom: 15px;
+  padding-bottom: 12px;
 }
-.monthly-archives-list-link {
+.monthly-archives-list .monthly-archives-list-link {
   display: inline-block;
   width: 20px;
+  margin-bottom: 5px;
   margin-right: 8px;
 }
 </style>
