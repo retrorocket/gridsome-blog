@@ -324,14 +324,14 @@ export default {
 #toc-wrapper {
   display: none;
 }
-.sticky-area {
-  position: sticky;
-  position: -webkit-sticky;
-  top: 0;
-}
-@media only screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
   #toc-wrapper {
     display: block;
+  }
+  .sticky-area {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
   }
 }
 #content-index li {
