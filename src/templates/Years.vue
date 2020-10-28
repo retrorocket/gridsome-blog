@@ -53,3 +53,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.post-list li {
+  margin-bottom: 8px;
+}
+</style>
