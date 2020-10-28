@@ -71,21 +71,19 @@
             v-show="tocTargets.length"
           >
             <div class="widget-wrap">
-              <div id="content-index">
-                <h4 class="widget-title">Table of contents</h4>
-                <ul id="content-toc">
-                  <li
-                    v-for="(target, index) in tocTargets"
-                    :key="target.id"
-                    :class="{
-                      current: index === position,
-                      [target.nodeName]: true,
-                    }"
-                  >
-                    <a :href="'#' + target.id">{{ target.textContent }}</a>
-                  </li>
-                </ul>
-              </div>
+              <h4 class="widget-title">Table of contents</h4>
+              <ul id="content-toc">
+                <li
+                  v-for="(target, index) in tocTargets"
+                  :key="target.id"
+                  :class="{
+                    current: index === position,
+                    [target.nodeName]: true,
+                  }"
+                >
+                  <a :href="'#' + target.id">{{ target.textContent }}</a>
+                </li>
+              </ul>
             </div>
           </section>
           <section id="searchbox" class="widget">
@@ -186,10 +184,6 @@ export default {
       position: 0,
       secTopArr: [],
       tocTargets: [],
-      catalogProps: {
-        container: ".entry-content",
-        watch: true,
-      },
     };
   },
   destroyed() {
@@ -244,6 +238,7 @@ export default {
               textContent: target.textContent,
               nodeName: `level-${target.nodeName.toLowerCase()}`,
             });
+            // offsetの取得
             const rect = target.getBoundingClientRect();
             const scrollTop =
               window.pageYOffset || document.documentElement.scrollTop;
@@ -280,7 +275,7 @@ export default {
         }
       });
     },
-    // https://gist.github.com/myaumyau/4975024
+    // See: https://gist.github.com/myaumyau/4975024
     decNumRefToString(decNumRef) {
       return decNumRef.replace(/&#(\d+);/gi, (match, $1, idx, all) => {
         return String.fromCharCode($1);
@@ -334,11 +329,11 @@ export default {
     top: 0;
   }
 }
-#content-index li {
+#content-toc li {
   padding-left: 4px;
   padding-right: 4px;
 }
-#content-index .level-h4 {
+#content-toc .level-h4 {
   padding-left: 15px;
 }
 .current {

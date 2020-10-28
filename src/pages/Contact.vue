@@ -17,8 +17,12 @@
             <p>mail [at] retrorocket.biz</p>
             <h4>注意事項</h4>
             <ul>
-              <li>特定のアプリケーションについてお問い合わせをする場合、本文に該当のアプリケーション名を記載してください。</li>
-              <li>Twitter系のアプリの不具合の場合、Twitterのアカウント名を連絡してください。調査に使用します。</li>
+              <li>
+                特定のアプリケーションについてお問い合わせをする場合、本文に該当のアプリケーション名を記載してください。
+              </li>
+              <li>
+                Twitter系のアプリの不具合の場合、Twitterのアカウント名を連絡してください。調査に使用します。
+              </li>
               <li>返信が必要な場合はメールアドレスを連絡してください。</li>
             </ul>
             <form
@@ -49,9 +53,13 @@
               ></textarea>
               <input type="submit" value="Submit" :disabled="isSend" />
             </form>
-            <p style="font-weight:bold;" v-if="isProcessing">送信中...</p>
-            <p style="font-weight:bold;" v-if="isSend">お問い合わせ内容が送信されました。</p>
-            <p style="font-weight:bold;" v-if="isError">エラーが発生しました。再度送信をお試しください。</p>
+            <p style="font-weight: bold" v-if="isProcessing">送信中...</p>
+            <p style="font-weight: bold" v-if="isSend">
+              お問い合わせ内容が送信されました。
+            </p>
+            <p style="font-weight: bold" v-if="isError">
+              エラーが発生しました。再度送信をお試しください。
+            </p>
           </div>
         </div>
       </article>
@@ -95,10 +103,10 @@ export default {
           this.isError = false;
           this.isProcessing = false;
         })
-        .catch((err) => {
+        .catch((error) => {
           this.isError = true;
           this.isProcessing = false;
-          console.log("err:", err);
+          console.error(error);
         });
       this.isSend = false;
       this.isError = false;
