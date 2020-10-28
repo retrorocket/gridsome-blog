@@ -54,7 +54,7 @@
 export default {
   metaInfo() {
     return {
-      title: "Right-Click to Calendar APP page",
+      title: "Right-Click to Calendarについて",
     };
   },
 };
