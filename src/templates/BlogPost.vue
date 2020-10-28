@@ -162,6 +162,7 @@ query BlogPost($path: String){
 <script>
 import MediumZoom from "medium-zoom";
 import Prism from "~/assets/prism.js";
+import { imageZoom } from "~/assets/imagezoom.js";
 import Readprogress from "~/components/Readprogress.vue";
 import Headtitle from "~/components/Headtitle.vue";
 import Headnav from "~/components/Headnav.vue";
@@ -263,12 +264,7 @@ export default {
     zoomImg() {
       this.$nextTick(() => {
         try {
-          const images = document.querySelectorAll(".entry-wrap a img");
-          images.forEach((image) => {
-            const origin = image.parentNode.href;
-            image.dataset.zoomSrc = origin;
-            image.parentNode.parentNode.insertBefore(image, image.parentNode);
-          });
+          imageZoom();
           MediumZoom(document.querySelectorAll(".entry-wrap img"));
         } catch (error) {
           console.error(error);
