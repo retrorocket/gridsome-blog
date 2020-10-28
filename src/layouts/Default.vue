@@ -187,9 +187,6 @@ pre .google-auto-placed {
 </style>
 
 <script>
-import MediumZoom from "medium-zoom";
-import Prism from "~/assets/prism.js";
-import { imageZoom } from "~/assets/imagezoom.js";
 import Adsense from "~/components/Adsense.vue";
 import Headtitle from "~/components/Headtitle.vue";
 import Headnav from "~/components/Headnav.vue";
@@ -205,35 +202,6 @@ export default {
     Headtitle,
     SearchBox,
     Yearslist,
-  },
-  mounted() {
-    this.prismHighlightAll();
-    this.zoomImg();
-  },
-  updated() {
-    this.prismHighlightAll();
-    this.zoomImg();
-  },
-  methods: {
-    prismHighlightAll() {
-      this.$nextTick(() => {
-        try {
-          Prism.highlightAll();
-        } catch (error) {
-          console.error(error);
-        }
-      });
-    },
-    zoomImg() {
-      this.$nextTick(() => {
-        try {
-          imageZoom();
-          MediumZoom(document.querySelectorAll(".entry-wrap img"));
-        } catch (error) {
-          console.error(error);
-        }
-      });
-    },
   },
   metaInfo() {
     return {
