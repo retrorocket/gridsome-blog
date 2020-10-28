@@ -333,8 +333,11 @@ export default {
   padding-left: 4px;
   padding-right: 4px;
 }
-#content-toc .level-h4 {
+#content-toc .level-h3 {
   padding-left: 15px;
+}
+#content-toc .level-h4 {
+  padding-left: 30px;
 }
 .current {
   background-color: #ededed;
