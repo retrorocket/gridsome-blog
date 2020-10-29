@@ -4,7 +4,10 @@ export const imageZoom = () => {
     const origin = image.parentNode.href;
     image.dataset.zoomSrc = origin;
     if (image.hasAttribute("aria-describedby")) {
-      image.removeAttribute('loading');
+      image.removeAttribute("sizes");
+      image.removeAttribute("width");
+      image.removeAttribute("height");
+      image.removeAttribute("loading");
     }
     image.parentNode.parentNode.insertBefore(image, image.parentNode);
   });
