@@ -331,18 +331,29 @@ export default {
     top: 0;
   }
 }
-#content-toc li {
-  padding-left: 4px;
-  padding-right: 4px;
+#content-toc a {
+  text-decoration: none;
+}
+#content-toc li:not(.current) a {
+  color: #888;
+}
+#content-toc li.current a {
+  color: #75b5c5;
+}
+#content-toc li:not(.current) a:hover {
+  color: #75b5c5;
+}
+#content-toc .level-h2 {
+  padding-left: 10px;
 }
 #content-toc .level-h3 {
-  padding-left: 15px;
+  padding-left: 20px;
 }
 #content-toc .level-h4 {
   padding-left: 30px;
 }
-.current {
-  background-color: #ededed;
+#content-toc li.current {
+  border-left: 3px solid #75b5c5;
   font-weight: bold;
 }
 </style>
