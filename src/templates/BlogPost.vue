@@ -39,6 +39,7 @@
                 class="entry-content"
                 itemprop="articleBody"
                 v-html="$page.blogPost.content"
+                ref="entryContent"
               />
               <footer class="entry-footer">
                 <div class="entry-meta">
@@ -161,6 +162,7 @@ query BlogPost($path: String){
 
 <script>
 import MediumZoom from "medium-zoom";
+import ResizeObserver from "resize-observer-polyfill";
 import Prism from "~/assets/prism.js";
 import { imageZoom } from "~/assets/imagezoom.js";
 import Readprogress from "~/components/Readprogress.vue";
@@ -185,21 +187,25 @@ export default {
       position: 0,
       secTopArr: [],
       tocTargets: [],
+      observer: null,
     };
   },
-  destroyed() {
+  beforeDestroy() {
     window.removeEventListener("scroll", this.onScroll);
+    this.observer.disconnect(this.$refs.entryContent);
   },
   mounted() {
-    this.createToc();
     this.prismHighlightAll();
     this.zoomImg();
     this.pageId = this.$page.blogPost.id;
     window.addEventListener("scroll", this.onScroll);
+    this.observer = new ResizeObserver((entries) => {
+      this.createToc();
+    });
+    this.observer.observe(this.$refs.entryContent);
   },
   updated() {
     if (this.$page.blogPost.id !== this.pageId) {
-      this.createToc();
       this.prismHighlightAll();
       this.zoomImg();
       this.pageId = this.$page.blogPost.id;

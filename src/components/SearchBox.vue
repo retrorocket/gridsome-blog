@@ -21,6 +21,7 @@
         <g-link :to="result.path">
           <span v-html="result.title" />
         </g-link>
+        {{ result.date }}
       </li>
     </ul>
     <ul v-else>
@@ -28,6 +29,7 @@
         <g-link :to="result.path">
           <span v-html="result.title" />
         </g-link>
+        {{ result.date }}
       </li>
     </ul>
   </div>
@@ -42,6 +44,7 @@ query Posts {
         path
         title
         keywords
+        date (format: "YYYY/MM/DD")
       }
     }
   }
