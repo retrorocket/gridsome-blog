@@ -185,7 +185,7 @@ export default {
     return {
       pageId: 0,
       position: 0,
-      secTopArr: [],
+      offsetTops: [],
       tocTargets: [],
       observer: null,
     };
@@ -215,8 +215,8 @@ export default {
     onScroll() {
       const scrollTop =
         document.documentElement.scrollTop || document.body.scrollTop;
-      for (let i = this.secTopArr.length - 1; i >= 0; i--) {
-        if (scrollTop > this.secTopArr[i] - 20) {
+      for (let i = this.offsetTops.length - 1; i >= 0; i--) {
+        if (scrollTop > this.offsetTops[i] - 20) {
           this.position = i;
           break;
         }
@@ -228,14 +228,8 @@ export default {
           const targets = document.querySelectorAll(
             ".entry-content h2,.entry-content h3,.entry-content h4"
           );
-          if (targets.length === 0) {
-            // 見出しがない記事は配列を初期化する
-            this.tocTargets = [];
-            this.secTopArr = [];
-            return;
-          }
           const tempTocTargets = [];
-          this.secTopArr = [];
+          this.offsetTops = [];
           let countId = 1;
           targets.forEach((target) => {
             target.id = "title-" + countId;
@@ -249,8 +243,7 @@ export default {
             const rect = target.getBoundingClientRect();
             const scrollTop =
               window.pageYOffset || document.documentElement.scrollTop;
-            const myTop = rect.top + scrollTop;
-            this.secTopArr.push(myTop);
+            this.offsetTops.push(rect.top + scrollTop);
           });
           this.tocTargets = Array.from(tempTocTargets);
         } catch (error) {
