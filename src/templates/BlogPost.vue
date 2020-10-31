@@ -69,13 +69,13 @@
           <section
             id="toc-wrapper"
             class="widget widget-1 even widget-first widget_text"
-            v-show="tocTargets.length"
+            v-show="$page.blogPost.tocTargets.length"
           >
             <div class="widget-wrap">
               <h4 class="widget-title">Table of contents</h4>
               <ul id="content-toc">
                 <li
-                  v-for="(target, index) in tocTargets"
+                  v-for="(target, index) in $page.blogPost.tocTargets"
                   :key="target.id"
                   :class="{
                     current: index === position,
@@ -146,6 +146,11 @@ query BlogPost($path: String){
     content
     date (format: "YYYY/MM/DD")
     path
+    tocTargets {
+      id
+      textContent
+      nodeName
+    }
     categories {
       id
       title
@@ -186,7 +191,6 @@ export default {
       pageId: 0,
       position: 0,
       offsetTops: [],
-      tocTargets: [],
       observer: null,
     };
   },
@@ -228,24 +232,17 @@ export default {
           const targets = document.querySelectorAll(
             ".entry-content h2,.entry-content h3,.entry-content h4"
           );
-          const tempTocTargets = [];
           this.offsetTops = [];
           let countId = 1;
           targets.forEach((target) => {
             target.id = "title-" + countId;
             countId++;
-            tempTocTargets.push({
-              id: target.id,
-              textContent: target.textContent,
-              nodeName: `level-${target.nodeName.toLowerCase()}`,
-            });
             // offsetの取得
             const rect = target.getBoundingClientRect();
             const scrollTop =
               window.pageYOffset || document.documentElement.scrollTop;
             this.offsetTops.push(rect.top + scrollTop);
           });
-          this.tocTargets = Array.from(tempTocTargets);
         } catch (error) {
           console.error(error);
         }

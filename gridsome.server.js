@@ -7,6 +7,7 @@
 const { tokenize } = require("kuromojin")
 const fs = require("fs-extra")
 const CACHE_PATH = "./src/cache/keywords.json"
+const DOMParser = require("universal-dom-parser")
 
 const data = fs.readJsonSync(CACHE_PATH, {
   encoding: 'utf-8',
@@ -17,7 +18,15 @@ const data = fs.readJsonSync(CACHE_PATH, {
 const keywordCount = data.length;
 
 module.exports = api => {
-  api.loadSource(({ addSchemaResolvers }) => {
+  api.loadSource(({ addSchemaTypes, addSchemaResolvers }) => {
+    addSchemaTypes(`
+    type Toc implements Node {
+      id: ID!
+      textContent: String
+      nodeName: String
+    }
+  `)
+
     // See:
     // https://www.broadleaves.dev/posts/2019-08-03-gridsome-flexsearch/
     // https://blog.solunita.net/posts/develop-blog-by-gridsome-from-scratch-full-text-search/
@@ -59,7 +68,28 @@ module.exports = api => {
             })
           },
         },
-      },
+        tocTargets: {
+          type: "[Toc]",
+          resolve(node) {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(`<html>${node.content}</html>`, 'text/html');
+            const targets = doc.querySelectorAll(
+              "h2,h3,h4"
+            );
+            const tocTargets = [];
+            let countId = 1;
+            targets.forEach((target) => {
+              tocTargets.push({
+                id: "title-" + countId,
+                textContent: target.textContent,
+                nodeName: `level-${target.nodeName.toLowerCase()}`,
+              });
+              countId++;
+            });
+            return tocTargets;
+          },
+        }
+      }
     })
   })
 
