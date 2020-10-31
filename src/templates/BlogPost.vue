@@ -213,6 +213,7 @@ export default {
       this.prismHighlightAll();
       this.zoomImg();
       this.pageId = this.$page.blogPost.id;
+      this.position = 0;
     }
   },
   methods: {
