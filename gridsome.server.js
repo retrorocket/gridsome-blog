@@ -20,12 +20,12 @@ const keywordCount = data.length;
 module.exports = api => {
   api.loadSource(({ addSchemaTypes, addSchemaResolvers }) => {
     addSchemaTypes(`
-    type Toc implements Node {
-      id: ID!
-      textContent: String
-      nodeName: String
-    }
-  `)
+      type Toc implements Node {
+        id: ID!
+        textContent: String
+        nodeName: String
+      }
+    `)
 
     // See:
     // https://www.broadleaves.dev/posts/2019-08-03-gridsome-flexsearch/
@@ -73,14 +73,12 @@ module.exports = api => {
           resolve(node) {
             const parser = new DOMParser();
             const doc = parser.parseFromString(`<html>${node.content}</html>`, 'text/html');
-            const targets = doc.querySelectorAll(
-              "h2,h3,h4"
-            );
+            const targets = doc.querySelectorAll("h2,h3,h4");
             const tocTargets = [];
             let countId = 1;
             targets.forEach((target) => {
               tocTargets.push({
-                id: "title-" + countId,
+                id: `title-${countId}`,
                 textContent: target.textContent,
                 nodeName: `level-${target.nodeName.toLowerCase()}`,
               });

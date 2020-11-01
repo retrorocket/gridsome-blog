@@ -236,7 +236,7 @@ export default {
           this.offsetTops = [];
           let countId = 1;
           targets.forEach((target) => {
-            target.id = "title-" + countId;
+            target.id = `title-${countId}`;
             countId++;
             // offsetの取得
             const rect = target.getBoundingClientRect();
