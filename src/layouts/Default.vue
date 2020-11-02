@@ -183,8 +183,6 @@ pre .google-auto-placed {
 }
 .entry-wrap .google-auto-placed {
   margin-top: 15px;
-}
-.entry-wrap .google-auto-placed {
   margin-bottom: 30px;
 }
 </style>
