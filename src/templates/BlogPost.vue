@@ -82,7 +82,7 @@
                     [target.nodeName]: true,
                   }"
                 >
-                  <a :href="'#' + target.id">{{ target.textContent }}</a>
+                  <a :href="`#${target.id}`">{{ target.textContent }}</a>
                 </li>
               </ul>
             </div>
