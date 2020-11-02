@@ -166,6 +166,9 @@ h1.entry-title {
 .wp-caption {
   padding-bottom: 20px;
 }
+.entry-wrap img {
+  margin-bottom: 10px;
+}
 .entry-wrap code:not([class]) {
   background-color: #eeeeee;
   color: #333;

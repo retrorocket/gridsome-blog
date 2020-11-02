@@ -33,7 +33,7 @@
           <div
             class="entry-summary"
             itemprop="description"
-            v-html="edge.node.content"
+            v-html="edge.node.convertedContentIndex"
           />
           <footer class="entry-footer">
             <div class="entry-meta">
@@ -72,7 +72,6 @@
 <script>
 import MediumZoom from "medium-zoom";
 import Prism from "~/assets/prism.js";
-import { imageZoom } from "~/assets/imagezoom.js";
 import { Pager } from "gridsome";
 import Readprogress from "~/components/Readprogress.vue";
 export default {
@@ -105,7 +104,6 @@ export default {
     zoomImg() {
       this.$nextTick(() => {
         try {
-          imageZoom();
           MediumZoom(document.querySelectorAll(".entry-wrap img"));
         } catch (error) {
           console.error(error);
@@ -129,7 +127,7 @@ query ($page: Int) {
         title
         path
         slug
-        content
+        convertedContentIndex
         date (format: "YYYY/MM/DD")
         categories {
           title

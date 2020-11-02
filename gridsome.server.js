@@ -85,8 +85,27 @@ module.exports = api => {
               countId++;
             });
             return tocTargets;
-          },
-        }
+          }
+        },
+        convertedContent: {
+          type: "String",
+          resolve(node) {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(`<html>${node.content}</html>`, 'text/html');
+            zoomImg(doc);
+            targetIndex(doc);
+            return doc.body.innerHTML;
+          }
+        },
+        convertedContentIndex: {
+          type: "String",
+          resolve(node) {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(`<html>${node.content}</html>`, 'text/html');
+            zoomImg(doc);
+            return doc.body.innerHTML;
+          }
+        },
       }
     })
   })
@@ -143,4 +162,29 @@ module.exports = api => {
     });
 
   })
+}
+
+const zoomImg = (doc) => {
+  const images = doc.querySelectorAll("a img");
+  images.forEach((image) => {
+    const origin = image.parentNode.href;
+    image.dataset.zoomSrc = origin;
+    if (image.hasAttribute("aria-describedby")) {
+      image.removeAttribute("sizes");
+      image.removeAttribute("width");
+      image.removeAttribute("height");
+      image.removeAttribute("loading");
+    }
+    image.parentNode.parentNode.insertBefore(image, image.parentNode);
+    image.nextElementSibling.remove();
+  });
+}
+
+const targetIndex = (doc) => {
+  const targets = doc.querySelectorAll("h2,h3,h4");
+  let countId = 1;
+  targets.forEach((target) => {
+    target.id = `title-${countId}`;
+    countId++;
+  });
 }

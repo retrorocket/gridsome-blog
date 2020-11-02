@@ -38,7 +38,7 @@
               <div
                 class="entry-content"
                 itemprop="articleBody"
-                v-html="$page.blogPost.content"
+                v-html="$page.blogPost.convertedContent"
                 ref="entryContent"
               />
               <footer class="entry-footer">
@@ -143,7 +143,7 @@ query BlogPost($path: String){
   blogPost(path:$path) {
     id
     title
-    content
+    convertedContent
     date (format: "YYYY/MM/DD")
     path
     tocTargets {
@@ -169,7 +169,6 @@ query BlogPost($path: String){
 import MediumZoom from "medium-zoom";
 import ResizeObserver from "resize-observer-polyfill";
 import Prism from "~/assets/prism.js";
-import { imageZoom } from "~/assets/imagezoom.js";
 import Readprogress from "~/components/Readprogress.vue";
 import Headtitle from "~/components/Headtitle.vue";
 import Headnav from "~/components/Headnav.vue";
@@ -234,10 +233,7 @@ export default {
             ".entry-content h2,.entry-content h3,.entry-content h4"
           );
           this.offsetTops = [];
-          let countId = 1;
           targets.forEach((target) => {
-            target.id = `title-${countId}`;
-            countId++;
             // offsetの取得
             const rect = target.getBoundingClientRect();
             const scrollTop =
@@ -261,7 +257,6 @@ export default {
     zoomImg() {
       this.$nextTick(() => {
         try {
-          imageZoom();
           MediumZoom(document.querySelectorAll(".entry-wrap img"));
         } catch (error) {
           console.error(error);

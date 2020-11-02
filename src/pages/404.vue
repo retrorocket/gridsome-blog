@@ -50,46 +50,6 @@
   </div>
 </template>
 
-<style>
-hr {
-  border: 0;
-  border-bottom: medium double #999;
-  margin-top: 5px;
-  margin-bottom: 20px;
-}
-h2.entry-title,
-h1.entry-title {
-  font-size: 28px;
-}
-.entry-wrap {
-  word-wrap: break-word;
-}
-.wp-caption {
-  padding-bottom: 20px;
-}
-.entry-wrap img {
-  margin-bottom: 10px;
-}
-.entry-wrap code:not([class]) {
-  background-color: #eeeeee;
-  color: #333;
-  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
-  padding: 4px;
-}
-pre .google-auto-placed {
-  display: none;
-}
-.entry-wrap pre[class*="language-"] {
-  margin-bottom: 30px;
-}
-.entry-wrap .google-auto-placed {
-  margin-top: 15px;
-}
-.entry-wrap .google-auto-placed {
-  margin-bottom: 30px;
-}
-</style>
-
 <script>
 import Headnav from "~/components/Headnav.vue";
 import Headtitle from "~/components/Headtitle.vue";

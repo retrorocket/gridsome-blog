@@ -402,7 +402,7 @@ h1 {
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 26px;
 }
 
 h3 {
@@ -850,9 +850,9 @@ Content Area
   margin-bottom: 15px;
 }
 
-.entry-summary img {
+/* .entry-summary img {
   margin-bottom: 24px;
-}
+} */
 
 .entry-summary img.medium, .entry-summary img.thumbnail, .entry-content img.medium, .entry-content img.thumbnail {
   float: left;
