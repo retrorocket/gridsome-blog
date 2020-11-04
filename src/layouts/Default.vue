@@ -30,6 +30,23 @@
               </div>
             </div>
           </section>
+          <section id="searchbox" class="widget">
+            <div class="widget-wrap">
+              <h4 class="widget-title">Search</h4>
+              <SearchBox />
+            </div>
+          </section>
+          <section id="recent-posts-2" class="widget widget_recent_entries">
+            <div class="widget-wrap">
+              <h4 class="widget-title">Recently</h4>
+              <ul>
+                <li v-for="edge in $static.recently.edges" :key="edge.node.id">
+                  <g-link :to="edge.node.path">{{ edge.node.title }}</g-link>
+                  {{ edge.node.date }}
+                </li>
+              </ul>
+            </div>
+          </section>
           <section
             id="custom_html-2"
             class="widget_text widget widget-2 odd widget_custom_html"
@@ -61,23 +78,6 @@
                   >モンスーノ ロック</a
                 >
               </div>
-            </div>
-          </section>
-          <section id="searchbox" class="widget">
-            <div class="widget-wrap">
-              <h4 class="widget-title">Search</h4>
-              <SearchBox />
-            </div>
-          </section>
-          <section id="recent-posts-2" class="widget widget_recent_entries">
-            <div class="widget-wrap">
-              <h4 class="widget-title">Recently</h4>
-              <ul>
-                <li v-for="edge in $static.recently.edges" :key="edge.node.id">
-                  <g-link :to="edge.node.path">{{ edge.node.title }}</g-link>
-                  {{ edge.node.date }}
-                </li>
-              </ul>
             </div>
           </section>
           <section id="categories-2" class="widget widget_categories">
