@@ -317,6 +317,10 @@ export default {
     top: 0;
   }
 }
+#content-toc {
+  max-height: 70vh;
+  overflow-y: auto;
+}
 #content-toc a {
   text-decoration: none;
 }
