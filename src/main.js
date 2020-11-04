@@ -10,8 +10,8 @@ export default function (Vue, { router, head, isClient }) {
   head.link.push({
     rel: "alternate",
     type: "application/rss+xml",
-    title: "return $lock; RSS Feed",
-    href: 'https://retrorocket.biz/feed.xml'
+    title: "return $lock; Blog Feed",
+    href: 'https://retrorocket.biz/feed'
   })
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
