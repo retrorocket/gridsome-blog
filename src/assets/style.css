@@ -16,7 +16,7 @@ Omega WordPress theme is licensed under the GPL.
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
 /* Baseline Reset (normalize.css 2.1.2)
 	Link: http://necolas.github.com/normalize.css/
 --------------------------------------------- */
@@ -503,7 +503,6 @@ Structure and Layout
   background: url(//retrorocket.biz/public/img/line.png) repeat-x scroll top;
   clear: both;
   padding-top: 55px;
-  border-top: 6px solid #75B5C5;
 }
 
 /* Column Widths and Positions
@@ -707,7 +706,7 @@ Site Header
 }
 
 .site-header>.wrap {
-  padding: 40px 0 0 0;
+  padding: 20px 0 0 0;
 }
 
 .more-link, .more-link:visited {
@@ -731,15 +730,19 @@ Site Header
 .title-area {
   font-weight: 700;
   padding: 16px 0;
-  text-align: center;
+  text-align: left;
 }
 
 .header-image .title-area {
   padding: 0;
 }
 
+#navigation {
+  background-color: #75B5C5;
+}
+
 .site-title {
-  font-size: 45px;
+  font-size: 32px;
   font-family: 'Montserrat', sans-serif;
   line-height: 1;
   margin: 0;
@@ -748,15 +751,18 @@ Site Header
 
 .site-title a, .site-title a:hover {
   color: #75B5C5;
+  border-bottom: #75B5C5 1px dotted;
+  font-weight: 500;
 }
 
 .site-description {
-  color: #75B5C5;
-  font-size: 16px;
-  font-weight: 300;
+  color: #666;
+  font-size: 12px;
+  font-weight: normal;
   margin: 0;
   letter-spacing: 1px;
-  padding-top: 5px;
+  padding-top: 15px;
+  padding-bottom: 10px;
 }
 
 /*
@@ -783,10 +789,16 @@ Site Navigation
 }
 
 .omega-nav-menu a {
+  color: #fff;
   border: none;
   display: block;
-  padding: 30px 27px;
+  padding: 15px 27px;
   position: relative;
+}
+
+.omega-nav-menu a:hover {
+  color: #fff;
+  background-color: #99cedb;
 }
 
 .omega-nav-menu ul {
@@ -1125,7 +1137,8 @@ Media Queries
     background-position: center top;
   }
   .site-header>.wrap {
-    padding: 35px 0px 30px;
+    padding: 10px 5% 0px;
+    border-bottom: 6px solid #75B5C5;
   }
   .site-inner {
     padding-top: 40px;
@@ -1140,8 +1153,8 @@ Media Queries
   .omega-nav-menu li {
     float: none;
   }
-  .omega-nav-menu, .site-description, .site-header .title-area, .site-title {
-    text-align: center;
+  .omega-nav-menu {
+    text-align: left;
   }
   .site-title {
     margin-bottom: 5px;
@@ -1203,7 +1216,7 @@ Media Queries
   }
   /*Create vertical spacing*/
   ul.menu-primary li {
-    margin-bottom: 1px;
+    margin-bottom: 0px;
   }
   /*Make all menu links full width*/
   ul.menu-primary li, ul.menu-primary li a {
@@ -1230,8 +1243,8 @@ Media Queries
     border-bottom: none;
   }
   ul.menu-primary a:hover {
-    background-color: #f7f7f7;
-    color: #111;
+    background-color: #99cedb;
+    color: #fff;
   }
   ul.menu-primary ul a {
     padding-left: 25px;

@@ -14,22 +14,6 @@
           itemscope
           itemtype="https://schema.org/WPSideBar"
         >
-          <section
-            id="text-2"
-            class="widget widget-1 even widget-first widget_text"
-          >
-            <div class="widget-wrap">
-              <h4 class="widget-title">Information</h4>
-              <div class="textwidget">
-                <p>
-                  技術的なメモを中心にスピンゴーするブログ。
-                  <br />メールは
-                  <a href="https://retrorocket.biz/contact">contact</a>
-                  からお願いします。
-                </p>
-              </div>
-            </div>
-          </section>
           <section id="searchbox" class="widget">
             <div class="widget-wrap">
               <h4 class="widget-title">Search</h4>

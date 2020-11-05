@@ -11,6 +11,9 @@
         <h1 class="site-title" itemprop="headline">
           <g-link to="/">{{ $static.metadata.siteName }}</g-link>
         </h1>
+        <div class="site-description">
+          技術的なメモを中心にスピンゴーするブログ。
+        </div>
       </div>
     </div>
   </header>
