@@ -702,11 +702,12 @@ Site Header
 
 .site-header {
   background: #fff;
-  /* url(//retrorocket.biz/public/img/bg.png) repeat-x scroll bottom; */
+  /* background: #fff url(//retrorocket.biz/public/img/bg.png) no-repeat right bottom; */
 }
 
 .site-header>.wrap {
   padding: 20px 0 0 0;
+  background: #fff url(//retrorocket.biz/public/img/onepoint.png) no-repeat right 2% bottom 0%/8%;
 }
 
 .more-link, .more-link:visited {
@@ -1138,7 +1139,7 @@ Media Queries
   }
   .site-header>.wrap {
     padding: 10px 5% 0px;
-    border-bottom: 6px solid #75B5C5;
+    border-bottom: 8px solid #75B5C5;
   }
   .site-inner {
     padding-top: 40px;
