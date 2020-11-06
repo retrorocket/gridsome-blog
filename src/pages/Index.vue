@@ -82,14 +82,24 @@ export default {
   metaInfo: {
     titleTemplate: "",
     title: "return $lock;",
+    script: [
+      {
+        src: "https://platform.twitter.com/widgets.js",
+        async: true,
+        body: true,
+        charset: "utf-8",
+      },
+    ],
   },
   mounted() {
     this.prismHighlightAll();
     this.zoomImg();
+    this.twttrLoad();
   },
   updated() {
     this.prismHighlightAll();
     this.zoomImg();
+    this.twttrLoad();
   },
   methods: {
     prismHighlightAll() {
@@ -105,6 +115,17 @@ export default {
       this.$nextTick(() => {
         try {
           MediumZoom(document.querySelectorAll(".entry-wrap img"));
+        } catch (error) {
+          console.error(error);
+        }
+      });
+    },
+    twttrLoad() {
+      this.$nextTick(() => {
+        try {
+          if (window.twttr) {
+            window.twttr.widgets.load();
+          }
         } catch (error) {
           console.error(error);
         }

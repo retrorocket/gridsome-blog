@@ -200,6 +200,7 @@ export default {
   mounted() {
     this.prismHighlightAll();
     this.zoomImg();
+    this.twttrLoad();
     this.pageId = this.$page.blogPost.id;
     window.addEventListener("scroll", this.onScroll);
     this.observer = new ResizeObserver((entries) => {
@@ -211,6 +212,7 @@ export default {
     if (this.$page.blogPost.id !== this.pageId) {
       this.prismHighlightAll();
       this.zoomImg();
+      this.twttrLoad();
       this.pageId = this.$page.blogPost.id;
       this.position = 0;
     }
@@ -263,6 +265,17 @@ export default {
         }
       });
     },
+    twttrLoad() {
+      this.$nextTick(() => {
+        try {
+          if (window.twttr) {
+            window.twttr.widgets.load();
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      });
+    },
     // See: https://gist.github.com/myaumyau/4975024
     decNumRefToString(decNumRef) {
       return decNumRef.replace(/&#(\d+);/gi, (match, $1, idx, all) => {
@@ -283,6 +296,12 @@ export default {
         {
           src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
           async: true,
+        },
+        {
+          src: "https://platform.twitter.com/widgets.js",
+          async: true,
+          body: true,
+          charset: "utf-8",
         },
       ],
     };
