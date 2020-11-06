@@ -795,6 +795,7 @@ Site Navigation
   display: block;
   padding: 15px 27px;
   position: relative;
+  transition: background-color 0.3s;
 }
 
 .omega-nav-menu a:hover {
@@ -1138,7 +1139,7 @@ Media Queries
     background-position: center top;
   }
   .site-header>.wrap {
-    padding: 10px 5% 0px;
+    padding: 20px 5% 0px;
     border-bottom: 8px solid #75B5C5;
   }
   .site-inner {
@@ -1239,6 +1240,7 @@ Media Queries
     padding-top: 16px;
     padding-bottom: 16px;
     border-bottom: 1px solid #eee;
+    transition: background-color 0.3s;
   }
   ul.menu-primary li:last-child a {
     border-bottom: none;
