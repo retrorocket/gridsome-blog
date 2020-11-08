@@ -29,8 +29,20 @@
                   v-html="$page.blogPost.title"
                 />
                 <div class="entry-meta">
-                  <span class="entry-time">{{ $page.blogPost.date }}</span>
-                  by りゅー
+                  <time
+                    class="entry-time"
+                    :datetime="`${$page.blogPost.fulldate}+09:00`"
+                    itemprop="datePublished"
+                    >{{ $page.blogPost.date }}</time
+                  >
+                  <span
+                    class="entry-author"
+                    itemprop="author publisher"
+                    itemscope="itemscope"
+                    itemtype="http://schema.org/Person"
+                  >
+                    by <span itemprop="name">りゅー</span></span
+                  >
                 </div>
                 <!-- .entry-meta -->
               </header>
@@ -145,6 +157,7 @@ query BlogPost($path: String){
     title
     convertedContent
     date (format: "YYYY/MM/DD")
+    fulldate: date
     path
     tocTargets {
       id

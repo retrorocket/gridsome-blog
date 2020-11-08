@@ -25,8 +25,20 @@
               </g-link>
             </h2>
             <div class="entry-meta">
-              <span class="entry-time">{{ edge.node.date }}</span>
-              by りゅー
+              <time
+                class="entry-time"
+                :datetime="`${edge.node.fulldate}+09:00`"
+                itemprop="datePublished"
+                >{{ edge.node.date }}</time
+              >
+              <span
+                class="entry-author"
+                itemprop="author publisher"
+                itemscope="itemscope"
+                itemtype="http://schema.org/Person"
+              >
+                by <span itemprop="name">りゅー</span></span
+              >
             </div>
           </header>
           <!-- .entry-header -->
@@ -150,6 +162,7 @@ query ($page: Int) {
         slug
         convertedContentIndex
         date (format: "YYYY/MM/DD")
+        fulldate: date
         categories {
           title
           path
