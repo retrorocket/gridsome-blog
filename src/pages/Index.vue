@@ -33,7 +33,7 @@
               >
               <span
                 class="entry-author"
-                itemprop="author publisher"
+                itemprop="author"
                 itemscope="itemscope"
                 itemtype="http://schema.org/Person"
               >
