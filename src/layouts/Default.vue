@@ -169,6 +169,9 @@ pre .google-auto-placed {
   margin-top: 15px;
   margin-bottom: 30px;
 }
+.grecaptcha-badge {
+  visibility: hidden;
+}
 </style>
 
 <script>

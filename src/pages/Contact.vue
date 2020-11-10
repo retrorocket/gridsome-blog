@@ -53,6 +53,13 @@
               ></textarea>
               <input type="submit" value="Submit" :disabled="isSend" />
             </form>
+            <p id="contact-form">
+              This site is protected by reCAPTCHA and the Google
+              <a href="https://policies.google.com/privacy">Privacy Policy</a>
+              and
+              <a href="https://policies.google.com/terms">Terms of Service</a>
+              apply.
+            </p>
             <p style="font-weight: bold" v-if="isProcessing">送信中...</p>
             <p style="font-weight: bold" v-if="isSend">
               お問い合わせ内容が送信されました。
@@ -87,12 +94,16 @@ export default {
     };
   },
   methods: {
-    submit() {
+    async submit() {
       this.isProcessing = true;
+      await this.$recaptchaLoaded();
+      const token = await this.$recaptcha("submit");
+
       const submitParams = new FormData();
       submitParams.append("name", this.name);
       submitParams.append("email", this.email);
       submitParams.append("text", this.text);
+      submitParams.append("g-recaptcha-response", token);
 
       Axios.post(
         "https://getform.io/f/3707c1db-0940-4112-9fc3-c37d38be4fec",

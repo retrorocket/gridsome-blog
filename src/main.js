@@ -4,6 +4,7 @@
 import DefaultLayout from '~/layouts/Default.vue'
 import '~/assets/style.css'
 import '~/assets/prism.css'
+import { VueReCaptcha } from 'vue-recaptcha-v3'
 
 export default function (Vue, { router, head, isClient }) {
   head.htmlAttrs = { lang: 'ja' }
@@ -15,4 +16,7 @@ export default function (Vue, { router, head, isClient }) {
   })
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
+  Vue.use(VueReCaptcha, {
+    siteKey: "6Lee5bgZAAAAAIyxRHmehFXMa38S0kPbAQv0Nb_1",
+  })
 }

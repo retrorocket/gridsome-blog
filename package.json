@@ -19,6 +19,7 @@
     "medium-zoom": "^1.0.6",
     "resize-observer-polyfill": "^1.5.1",
     "universal-dom-parser": "^0.0.3",
-    "vue-read-progress": "^1.0.4"
+    "vue-read-progress": "^1.0.4",
+    "vue-recaptcha-v3": "^1.9.0"
   }
 }
