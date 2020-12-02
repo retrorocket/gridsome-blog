@@ -150,7 +150,7 @@ form {
 }
 
 .feedback-input:focus {
-  border: 2px solid #618b96;
+  border: 2px solid #99cedb;
 }
 
 textarea {
@@ -175,7 +175,7 @@ textarea {
   font-weight: normal;
 }
 [type="submit"]:hover {
-  background: #618b96;
+  background: #99cedb;
 }
 [type="submit"][disabled] {
   background: #dcdcdc;
