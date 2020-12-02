@@ -710,7 +710,7 @@ Site Header
   background: #fff url(//retrorocket.biz/public/img/onepoint.png) no-repeat right 2% bottom 0%/auto 51%;
 }
 
-.more-link, .more-link:visited {
+.more .more-link {
   padding: 6px 24px;
   border-radius: 4px;
   display: inline-block;
@@ -718,11 +718,13 @@ Site Header
   color: #fff;
   background: #75B5C5;
   transition: background-color 0.3s;
+  text-decoration: none;
 }
 
-.more-link:hover, .more-link:focus, .more-link:active {
+.more .more-link:hover, .more .more-link:focus, .more .more-link:active {
   background: #99cedb;
   color: #fff;
+  text-decoration: none;
 }
 
 /* Title Area
