@@ -1,6 +1,5 @@
 <template>
   <Layout>
-    <Readprogress />
     <main
       class="content"
       id="content"
@@ -42,11 +41,16 @@
             </div>
           </header>
           <!-- .entry-header -->
-          <div
-            class="entry-summary"
-            itemprop="description"
-            v-html="edge.node.convertedContentIndex"
-          />
+          <div class="entry-summary" itemprop="description">
+            <p v-html="edge.node.excerpt" />
+            <p>
+              <span class="more"
+                ><g-link :to="edge.node.path" class="more-link"
+                  >続きを読む</g-link
+                ></span
+              >
+            </p>
+          </div>
           <footer class="entry-footer">
             <div class="entry-meta">
               <span class="entry-terms category" itemprop="articleSection">
@@ -85,11 +89,9 @@
 import MediumZoom from "medium-zoom";
 import Prism from "~/assets/prism.js";
 import { Pager } from "gridsome";
-import Readprogress from "~/components/Readprogress.vue";
 export default {
   components: {
     Pager,
-    Readprogress,
   },
   metaInfo: {
     titleTemplate: "",
@@ -157,10 +159,10 @@ query ($page: Int) {
     edges {
       node {
         id
+        excerpt
         title
         path
         slug
-        convertedContentIndex
         date (format: "YYYY/MM/DD")
         fulldate: date
         categories {

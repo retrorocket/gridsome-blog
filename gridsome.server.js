@@ -97,15 +97,6 @@ module.exports = api => {
             return doc.body.innerHTML;
           }
         },
-        convertedContentIndex: {
-          type: "String",
-          resolve(node) {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(`<html>${node.content}</html>`, 'text/html');
-            zoomImg(doc);
-            return doc.body.innerHTML;
-          }
-        },
       }
     })
   })
