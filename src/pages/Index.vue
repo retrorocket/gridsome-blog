@@ -86,8 +86,6 @@
 </style>
 
 <script>
-import MediumZoom from "medium-zoom";
-import Prism from "~/assets/prism.js";
 import { Pager } from "gridsome";
 export default {
   components: {
@@ -104,47 +102,6 @@ export default {
         charset: "utf-8",
       },
     ],
-  },
-  mounted() {
-    this.prismHighlightAll();
-    this.zoomImg();
-    this.twttrLoad();
-  },
-  updated() {
-    this.prismHighlightAll();
-    this.zoomImg();
-    this.twttrLoad();
-  },
-  methods: {
-    prismHighlightAll() {
-      this.$nextTick(() => {
-        try {
-          Prism.highlightAll();
-        } catch (error) {
-          console.error(error);
-        }
-      });
-    },
-    zoomImg() {
-      this.$nextTick(() => {
-        try {
-          MediumZoom(document.querySelectorAll(".entry-wrap img"));
-        } catch (error) {
-          console.error(error);
-        }
-      });
-    },
-    twttrLoad() {
-      this.$nextTick(() => {
-        try {
-          if (window.twttr) {
-            window.twttr.widgets.load();
-          }
-        } catch (error) {
-          console.error(error);
-        }
-      });
-    },
   },
 };
 </script>
