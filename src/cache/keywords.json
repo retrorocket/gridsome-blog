@@ -1,5 +1,9 @@
 [
   {
+    "id": "1668",
+    "keyword": "ブログ サーバ CentOS Stream WebARENA Indigo VPS 個人 使う いい 思っ インスタンス 払い出せる よう なっ Ubuntu 乗り換え 今日 入れ替え する つもり 10 発生 リソース 不足 解決 思い 不安 なり 安い 仕方 割り切っ 2020 11 20 更新 Linux 在庫 公式 ウェブアリーナ レンタル サーバー クラ ウド メール 専用 データ センター 作業 内容 肝心 コンソール ログ 保存 そこね 情報 参考 移行 手順 ある それ そのまま 実行 以下 コマンド 引用 root centos linux dnf install release stream swap repos distro sync cat etc 環境 依存 関係 でき いくつ パッケージ 削除 必要 ため allowerasing オプション 使わ 問題 困る 場合 見送り あと ダウン グレード 動作 影響 修正 そう 切り替え 8211 ngyuki 日記 サービス いる おかしい ところ あっ contact 教え 下さい サポート OS 心配 アナウンス 対応 打つ たび INFO くる Librepo version 12 with CURL GLOBAL ACK EINTR support libcurl 61 OpenSSL zlib brotli libidn libpsl libssh openssl nghttp 33 ローカル VM 試し 症状 悪い わけ Message on terminal 0017924 quot WARNING Repomod xml parser Unknown element revision when running update Bug Tracker 致命 ない 思う 待ち 感じ 動い てる 急ぎ"
+  },
+  {
     "id": "1657",
     "keyword": "nginx 特定 パス クライアント 認証 除外 try files 内部 リダイレクト 特殊 ケース すぎ 使う こと ない 設定 思う いか 悩ん しまっ メモ 検証 使っ バージョン 18 達成 https example com 全体 適用 ignore 以下 条件 php fpm 実行 できる よう 対象 拡張 する uri index args いる 状況 応じ 必要 ある abc 存在 不要 ダメ 方法 server listen 443 ssl http いろいろ 省略 client certificate etc xxx pem verify optional location if SUCCESS return 403 fastcgi pass unix run www sock ディレクティブ 使用 推奨 使わ ディレクトリ ため 使い If is Evil 8230 when used in context NGINX 動い てる 見え アクセス 要求 評価 れる 今回 採用 set verified check NG OK 済み 場合 表す フラグ 実現 わかっ そちら …。"
   },
