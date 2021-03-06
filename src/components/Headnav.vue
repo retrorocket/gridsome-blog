@@ -10,6 +10,9 @@
       <a href="#" id="menu-icon" class="menu-icon">
         <span></span>
       </a>
+      <a href="#" id="menu-icon-hover" class="menu-icon-hover">
+        <span></span>
+      </a>
       <ul id="menu-home" class="menu omega-nav-menu menu-primary">
         <li class="menu-item menu-item-type-post_type menu-item-object-page first">
           <g-link to="/">home</g-link>

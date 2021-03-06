@@ -1210,7 +1210,29 @@ Media Queries
     width: 100%;
     border-top: 4px solid #75B5C5;
   }
-  .menu-icon:hover {
+  .menu-icon-hover {
+    position: absolute;
+    z-index: 9;
+    top: 0px;
+    right: 0px;
+    display: none;
+    width: 24px;
+    margin: 17px;
+    text-indent: -999px;
+    height: 20px;
+    border-top: 4px solid #75B5C5;
+    border-bottom: 4px solid #75B5C5;
+    opacity: 0.8;
+  }
+  .menu-icon-hover:before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 0;
+    width: 100%;
+    border-top: 4px solid #75B5C5;
+  }
+  .menu-icon-hover:hover {
     opacity: 1;
   }
   ul.menu-primary {
@@ -1258,6 +1280,9 @@ Media Queries
     padding-left: 50px;
   }
   .nav-primary .wrap:hover ul.menu-primary {
+    display: block;
+  }
+  .nav-primary .wrap:hover .menu-icon-hover {
     display: block;
   }
 }
