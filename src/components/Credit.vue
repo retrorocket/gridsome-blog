@@ -1,7 +1,7 @@
 <template>
   <div>
     <p class="copyright">
-      Copyright &#169; 2020 return $lock;. |
+      Copyright &#169; 2021 return $lock;. |
       <g-link to="/privacy">プライバシーポリシー</g-link>
     </p>
 
