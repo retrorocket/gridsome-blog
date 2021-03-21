@@ -1213,9 +1213,14 @@ Media Queries
   .menu-icon:hover {
     opacity: 1;
   }
-  ul.menu-primary {
-    position: static;
+  #menu-icon+ul.menu-primary {
     display: none;
+    visibility: hidden;
+  }
+  #menu-icon:hover+ul.menu-primary {
+    position: static;
+    visibility: visible;
+    display: block;
     width: 100%;
   }
   /*Create vertical spacing*/
@@ -1256,9 +1261,6 @@ Media Queries
   }
   ul.menu-primary ul ul a {
     padding-left: 50px;
-  }
-  #menu-icon:hover + ul.menu-primary {
-    display: block;
   }
 }
 
