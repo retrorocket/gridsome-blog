@@ -500,7 +500,7 @@ Structure and Layout
 }
 
 .site-inner {
-  background: url(//retrorocket.biz/public/img/line.png) repeat-x scroll top;
+  background: url(images/line.png) repeat-x scroll top;
   clear: both;
   padding-top: 55px;
 }
@@ -707,7 +707,7 @@ Site Header
 
 .site-header>.wrap {
   padding: 20px 0 0 0;
-  background: #fff url(//retrorocket.biz/public/img/onepoint.png) no-repeat right 2% bottom 0%/auto 51%;
+  background: #fff url(images/onepoint.png) no-repeat right 2% bottom 0%/auto 51%;
 }
 
 .more .more-link {
