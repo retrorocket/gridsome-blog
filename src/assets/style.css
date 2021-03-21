@@ -1213,12 +1213,12 @@ Media Queries
   .menu-icon:hover {
     opacity: 1;
   }
-  #menu-icon+ul.menu-primary {
+  ul.menu-primary {
     position: static;
     display: none;
     width: 100%;
   }
-  #menu-icon:hover+ul.menu-primary {
+  .nav-primary .wrap:hover ul.menu-primary {
     display: block;
   }
   /*Create vertical spacing*/
