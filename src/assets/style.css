@@ -1214,14 +1214,12 @@ Media Queries
     opacity: 1;
   }
   #menu-icon+ul.menu-primary {
+    position: static;
     display: none;
-    visibility: hidden;
+    width: 100%;
   }
   #menu-icon:hover+ul.menu-primary {
-    position: static;
-    visibility: visible;
     display: block;
-    width: 100%;
   }
   /*Create vertical spacing*/
   ul.menu-primary li {

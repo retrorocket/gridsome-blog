@@ -6,7 +6,7 @@
     itemscope="itemscope"
     itemtype="https://schema.org/SiteNavigationElement"
   >
-    <div class="wrap" ontouchstart="">
+    <div class="wrap">
       <a href="#" id="menu-icon" class="menu-icon">
         <span></span>
       </a>
