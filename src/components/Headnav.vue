@@ -30,11 +30,6 @@
         >
           <g-link to="/kampa">kampaniya</g-link>
         </li>
-        <li
-          class="menu-item menu-item-type-post_type menu-item-object-page last"
-        >
-          <g-link to="/kampa">Close Menu</g-link>
-        </li>
       </ul>
     </div>
   </nav>
