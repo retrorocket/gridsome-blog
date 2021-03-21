@@ -1257,7 +1257,7 @@ Media Queries
   ul.menu-primary ul ul a {
     padding-left: 50px;
   }
-  .nav-primary .wrap:hover ul.menu-primary {
+  #menu-icon:hover + ul.menu-primary {
     display: block;
   }
 }
