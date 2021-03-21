@@ -1214,7 +1214,9 @@ Media Queries
     opacity: 1;
   }
   ul.menu-primary {
-    position: static;
+    position: absolute;
+    top: 0px;
+    background-color: #75B5C5;
     display: none;
     width: 100%;
   }
