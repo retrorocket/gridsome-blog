@@ -1,5 +1,9 @@
 [
   {
+    "id": "1693",
+    "keyword": "GitHub com Branch protection rules Organization Owner ルール 強制 rule 配下 ある Repository Admin 無視 できる よう したい 場面 あり 開発 管理 てる 結論 言う 設定 でき 残念 検証 過程 残し おき 以下 retrorocket Member ryu どちら アカウント PRO Protect matching branches Include administrators する 有効 Restrict who can push to ホワイト リスト すれ いけ そう repository and users with the Maintain role 言わ ほう 無効 レビュー 必須 プロテクト ブランチ 直接 ブロック PR プッシュ 制限 Managing branch 8211 Docs Actions 書け 運用 必要 なっ 時点 ポリシー 見直し 柔軟 なれ よい"
+  },
+  {
     "id": "1689",
     "keyword": "メモ GitHub Actions 実行 時間 支払い 8211 Docs パブリックリポジトリ 無料 製品 ストレージ あたり Free 500 MB 000 Pro GB Organization Team Enterprise Cloud 50 ジョブ ワーク フロー それぞれ 最大 でき 制限 達する 終了 られ 完了 失敗 72 キャンセル PR 発火 する 発行 リポジトリ 加算 れる 個人 プライベートリポジトリ 投げる 所有 消化 アカウント リンク 投げれ 全体 投げ 走ら DDoS 攻撃 とんでも 使い方 ある そう 感心 しまっ 使っ 巻き込ま 歌川 規約 違反 追加 利用 クリプトマイニング 当社 サーバー 使用 サービス デバイス データ ネットワーク 妨害 こと これら 不正 アクセス これ 試みる Bug Bounty Program 許可 いる 場合 除く 悪用 防ぐ ため 無効 設定 できる アクション"
   },
