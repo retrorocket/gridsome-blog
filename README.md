@@ -6,7 +6,7 @@ WordPressのAPIから記事を取得してGridsomeでビルドしています。
 ## ブログのURL
 
 * https://retrorocket.biz
-  - 同じサーバ内にGridsomeでビルドした静的ファイルと、WordPressが共存しています。
+  - Gridsomeでビルドした静的ファイルをホスティングするサーバーと、WordPressを運用しているサーバーを分けて運用しています。
   - WordPressはHeadless CMSとして使用しています。
 
 # Default starter for Gridsome
