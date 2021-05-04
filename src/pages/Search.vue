@@ -10,11 +10,19 @@
         <div class="entry-wrap">
           <header class="entry-header">
             <h1 class="entry-title" itemprop="headline">
-              Search results: {{ word }}
+              Search results: {{ target }}
             </h1>
           </header>
           <!-- .entry-header -->
           <div class="entry-content" itemprop="text">
+            <p>
+              <input
+                type="search"
+                class="search-field"
+                placeholder="Incremental Search ..."
+                v-model="target"
+              />
+            </p>
             <p v-if="searchResults.length === 0">No results found.</p>
             <ul>
               <li v-for="result in searchResults" :key="result.id">
@@ -62,36 +70,39 @@ export default {
   },
   data() {
     return {
-      word: this.$route.query.s,
+      target: this.$route.query.s,
+      lunrIndex: null,
     };
   },
   watch: {
     // クエリの変更を検知する
     $route(to, from) {
-      this.word = this.$route.query.s;
+      this.target = this.$route.query.s;
     },
   },
   computed: {
     // 検索結果を返す算出プロパティ
     searchResults() {
+      if (!this.target || !this.lunrIndex) return [];
       const results = [];
-      if (!this.word) return [];
-      lunr.Index.load(keywords)
-        .search(`${this.word}*`)
-        .forEach((result) => {
-          this.$page.posts.edges.forEach((origin) => {
-            if (origin.node.id === result.ref) {
-              results.push({
-                id: origin.node.id,
-                path: origin.node.path,
-                title: origin.node.title,
-                date: origin.node.date,
-              });
-            }
+      this.lunrIndex.search(`${this.target}*`).forEach((result) => {
+        const origin = this.$page.posts.edges.find(
+          (origin) => origin.node.id === result.ref
+        );
+        if (origin) {
+          results.push({
+            id: origin.node.id,
+            path: origin.node.path,
+            title: origin.node.title,
+            date: origin.node.date,
           });
-        });
+        }
+      });
       return results;
     },
+  },
+  beforeMount() {
+    this.lunrIndex = lunr.Index.load(keywords);
   },
 };
 </script>
