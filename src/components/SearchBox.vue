@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     check_word() {
-      if (!this.word === "") return;
+      if (!this.word) return;
       this.send_word = true;
     },
     submit() {

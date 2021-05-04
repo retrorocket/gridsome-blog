@@ -10,11 +10,12 @@
         <div class="entry-wrap">
           <header class="entry-header">
             <h1 class="entry-title" itemprop="headline">
-              search result: {{ word }}
+              Search results: {{ word }}
             </h1>
           </header>
           <!-- .entry-header -->
           <div class="entry-content" itemprop="text">
+            <p v-if="searchResults.length === 0">No results found.</p>
             <ul>
               <li v-for="result in searchResults" :key="result.id">
                 <g-link :to="result.path">
@@ -74,7 +75,7 @@ export default {
     // 検索結果を返す算出プロパティ
     searchResults() {
       const results = [];
-      if (this.word === "") return [];
+      if (!this.word) return [];
       lunr.Index.load(keywords)
         .search(`${this.word}*`)
         .forEach((result) => {
