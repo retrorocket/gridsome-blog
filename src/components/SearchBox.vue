@@ -1,88 +1,33 @@
 <template>
-  <!--
-    See:
-    https://www.broadleaves.dev/posts/2019-08-03-gridsome-flexsearch/
-    https://blog.solunita.net/posts/develop-blog-by-gridsome-from-scratch-full-text-search/
-  -->
   <div class="widget_search">
     <p>
       <input
         type="search"
         class="search-field"
         placeholder="Search ..."
-        v-model="searchTerm"
+        v-model="word"
+        @keypress.prevent.enter.exact="check_word"
+        @keyup.prevent.enter.exact="submit"
       />
     </p>
-    <p v-if="searchResults.length > 5 && !showMore">
-      <button @click="showMore = true">検索結果を全て表示する</button>
-    </p>
-    <ul v-if="!showMore">
-      <li v-for="result in searchResults.slice(0, 5)" :key="result.id">
-        <g-link :to="result.path">
-          <span v-html="result.title" />
-        </g-link>
-        {{ result.date }}
-      </li>
-    </ul>
-    <ul v-else>
-      <li v-for="result in searchResults" :key="result.id">
-        <g-link :to="result.path">
-          <span v-html="result.title" />
-        </g-link>
-        {{ result.date }}
-      </li>
-    </ul>
   </div>
 </template>
 
-<static-query>
-query Posts {
-  posts: allBlogPost {
-    edges {
-      node {
-        id
-        path
-        title
-        keywords
-        date (format: "YYYY/MM/DD")
-      }
-    }
-  }
-}
-</static-query>
-
 <script>
-import Flexsearch from "flexsearch";
 export default {
   data() {
-    return {
-      showMore: false,
-      searchTerm: "",
-      index: null,
-    };
+    return { send_word: false, word: "" };
   },
-  computed: {
-    // 検索結果を返す算出プロパティ
-    searchResults() {
-      this.showMore = false;
-      if (this.index === null) return [];
-      return this.index.search({
-        query: this.searchTerm,
-        limit: 100,
-      });
+  methods: {
+    check_word() {
+      if (!this.word === "") return;
+      this.send_word = true;
     },
-  },
-  beforeMount() {
-    this.index = new Flexsearch({
-      tokenize: (str) => {
-        return str.split(" ");
-      },
-      doc: {
-        id: "id",
-        field: ["title", "keywords"],
-      },
-    });
-    this.index.add(this.$static.posts.edges.map((e) => e.node));
+    submit() {
+      if (!this.send_word) return;
+      this.send_word = false;
+      this.$router.push(`/search?s=${this.word}`);
+    },
   },
 };
 </script>
