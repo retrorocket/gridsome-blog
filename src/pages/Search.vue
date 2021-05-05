@@ -47,6 +47,7 @@ query {
         id
         path
         title
+        keywords
         date (format: "YYYY/MM/DD")
       }
     }
@@ -55,12 +56,7 @@ query {
 </page-query>
 
 <script>
-const lunr = require("lunr");
-require("lunr-languages/tinyseg.js")(lunr);
-require("lunr-languages/lunr.stemmer.support.js")(lunr);
-require("lunr-languages/lunr.multi.js")(lunr);
-require("lunr-languages/lunr.ja.js")(lunr);
-import keywords from "~/assets/keywords.json";
+import Flexsearch from "flexsearch";
 
 export default {
   metaInfo() {
@@ -71,7 +67,7 @@ export default {
   data() {
     return {
       target: this.$route.query.s,
-      lunrIndex: null,
+      index: null,
     };
   },
   watch: {
@@ -83,26 +79,22 @@ export default {
   computed: {
     // 検索結果を返す算出プロパティ
     searchResults() {
-      if (!this.target || !this.lunrIndex) return [];
-      const results = [];
-      this.lunrIndex.search(`${this.target}*`).forEach((result) => {
-        const origin = this.$page.posts.edges.find(
-          (origin) => origin.node.id === result.ref
-        );
-        if (origin) {
-          results.push({
-            id: origin.node.id,
-            path: origin.node.path,
-            title: origin.node.title,
-            date: origin.node.date,
-          });
-        }
+      if (!this.target || !this.index) return [];
+      return this.index.search({
+        query: this.target,
+        limit: 100,
       });
-      return results;
     },
   },
   beforeMount() {
-    this.lunrIndex = lunr.Index.load(keywords);
+    this.index = new Flexsearch({
+      tokenize: (str) => [...new Set(str)],
+      doc: {
+        id: "id",
+        field: ["title", "keywords"],
+      },
+    });
+    this.index.add(this.$page.posts.edges.map((e) => e.node));
   },
 };
 </script>

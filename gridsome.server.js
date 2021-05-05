@@ -4,17 +4,20 @@
 
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
-const DOMParser = require("universal-dom-parser")
+const { tokenize } = require("kuromojin")
 const fs = require("fs-extra")
-const CACHE_PATH = "./src/assets/keywords.json"
-const lunr = require("lunr");
-require("lunr-languages/tinyseg.js")(lunr);
-require("lunr-languages/lunr.stemmer.support.js")(lunr);
-require("lunr-languages/lunr.multi.js")(lunr);
-require("lunr-languages/lunr.ja.js")(lunr); // or any other language you want
+const CACHE_PATH = "./src/cache/keywords.json"
+const DOMParser = require("universal-dom-parser")
+
+const data = fs.readJsonSync(CACHE_PATH, {
+  encoding: 'utf-8',
+  reviver: null,
+  throws: true
+});
+
+const keywordCount = data.length;
 
 module.exports = api => {
-
   api.loadSource(({ addSchemaTypes, addSchemaResolvers }) => {
     addSchemaTypes(`
       type Toc implements Node {
@@ -24,8 +27,47 @@ module.exports = api => {
       }
     `)
 
+    // See:
+    // https://www.broadleaves.dev/posts/2019-08-03-gridsome-flexsearch/
+    // https://blog.solunita.net/posts/develop-blog-by-gridsome-from-scratch-full-text-search/
     addSchemaResolvers({
       BlogPost: {
+        keywords: {
+          type: "String",
+          resolve(node) {
+            // keywordsを生成済みの記事はキャッシュのjsonファイルを参照する
+            for (let i in data) {
+              if (data[i].id === node.id) {
+                return data[i].keyword
+              }
+            }
+            const POS_LIST = ["名詞", "動詞", "形容詞"] // 対象品詞
+            const IGNORE_REGEX = /^[!-/:-@[-`{-~、-〜”’・]+$/ //半角記号のみ
+            const MIN_LENGTH = 2 // 最低文字数
+            const str = node.content.replace(/<\/?[^>]+>/gi, ""); // html tag除外
+            return tokenize(str).then(tokens => {
+              const allTokens = tokens
+                .filter(token => POS_LIST.includes(token.pos))
+                .map(token => token.surface_form)
+              const keywords = [...new Set(allTokens)]
+                .filter(word => !IGNORE_REGEX.test(word))
+                .filter(word => word.length >= MIN_LENGTH)
+              const keywordStr = keywords.join(' ')
+              if (data.unshift({ id: node.id, keyword: keywordStr }) > keywordCount + 1) {
+                return keywordStr;
+              }
+              fs.writeJsonSync(CACHE_PATH, data,
+                {
+                  encoding: 'utf-8',
+                  replacer: null,
+                  spaces: "  "
+                },
+                err => {
+                });
+              return keywordStr;
+            })
+          },
+        },
         tocTargets: {
           type: "[Toc]",
           resolve(node) {
@@ -65,9 +107,6 @@ module.exports = api => {
       allBlogPost {
         edges {
           node {
-            id
-            content
-            title
             year: date(format: "YYYY")
             month: date(format: "YYYY,MM")
           }
@@ -112,29 +151,6 @@ module.exports = api => {
         }
       });
     });
-
-    // lunrのindexをファイルに出力する
-    // TODO: ここでやる作業ではないはずだがどこで呼べばいいのかわからない
-    const docs = data.allBlogPost.edges;
-
-    const index = lunr(function () {
-      this.use(lunr.multiLanguage("en", "jp"));
-      this.ref("id");
-      this.field("text");
-      this.field("title", { boost: 10 });
-      docs.forEach(({ node }) => {
-        this.add({ id: node.id, title: node.title, text: node.content.replace(/<\/?[^>]+>/gi, "") });
-      }, this);
-    });
-
-    fs.writeJsonSync(CACHE_PATH, index,
-      {
-        encoding: 'utf-8',
-        replacer: null,
-        spaces: "  "
-      },
-      err => {
-      });
 
   })
 }
