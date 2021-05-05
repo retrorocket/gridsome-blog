@@ -88,7 +88,9 @@ export default {
   },
   beforeMount() {
     this.index = new Flexsearch({
-      tokenize: (str) => [...new Set(str)],
+      tokenize: (str) => {
+        return str.split(" ");
+      },
       doc: {
         id: "id",
         field: ["title", "keywords"],

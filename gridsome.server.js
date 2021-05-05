@@ -41,10 +41,12 @@ module.exports = api => {
                 return data[i].keyword
               }
             }
+            const str = node.title + " " + node.content.replace(/<\/?[^>]+>/gi, ""); // html tag除外
+            const newwords = [...new Set(str.match(/[一-龠]+|[ァ-ヴー]+/g).flat())]                // 1文字の要素を削除する
+              .filter(word => word.length > 1)
             const POS_LIST = ["名詞", "動詞", "形容詞"] // 対象品詞
             const IGNORE_REGEX = /^[!-/:-@[-`{-~、-〜”’・]+$/ //半角記号のみ
             const MIN_LENGTH = 2 // 最低文字数
-            const str = node.content.replace(/<\/?[^>]+>/gi, ""); // html tag除外
             return tokenize(str).then(tokens => {
               const allTokens = tokens
                 .filter(token => POS_LIST.includes(token.pos))
@@ -52,7 +54,8 @@ module.exports = api => {
               const keywords = [...new Set(allTokens)]
                 .filter(word => !IGNORE_REGEX.test(word))
                 .filter(word => word.length >= MIN_LENGTH)
-              const keywordStr = keywords.join(' ')
+              const result = [...new Set(keywords.concat(newwords))]
+              const keywordStr = result.join(' ')
               if (data.unshift({ id: node.id, keyword: keywordStr }) > keywordCount + 1) {
                 return keywordStr;
               }
