@@ -93,7 +93,7 @@ export default {
       },
       doc: {
         id: "id",
-        field: ["title", "keywords"],
+        field: ["keywords"],
       },
     });
     this.index.add(this.$page.posts.edges.map((e) => e.node));
