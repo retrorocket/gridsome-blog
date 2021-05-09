@@ -159,6 +159,7 @@ query BlogPost($path: String){
     date (format: "YYYY/MM/DD")
     fulldate: date
     path
+    excerpt
     tocTargets {
       id
       textContent
@@ -305,6 +306,12 @@ export default {
         },
       ],
       title: this.decNumRefToString(this.$page.blogPost.title),
+      meta: [
+        {
+          name: "description",
+          content: this.$page.blogPost.excerpt,
+        },
+      ],
       script: [
         {
           src: "https://platform.twitter.com/widgets.js",

@@ -48,7 +48,7 @@ query PostsByDate($periodStartDate: Date, $periodEndDate: Date) {
 export default {
   metaInfo() {
     return {
-      title: this.$context.displayYear,
+      title: `${this.$context.displayYear} の記事一覧`,
     };
   },
 };

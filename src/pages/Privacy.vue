@@ -65,6 +65,13 @@ export default {
   metaInfo() {
     return {
       title: "プライバシーポリシー",
+      meta: [
+        {
+          name: "description",
+          content:
+            "return $lock; のプライバシーポリシーです。",
+        },
+      ],
     };
   },
 };

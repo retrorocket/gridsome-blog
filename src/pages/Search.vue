@@ -62,6 +62,12 @@ export default {
   metaInfo() {
     return {
       title: "search",
+      meta: [
+        {
+          name: "description",
+          content: "ブログの全文検索用ページです。",
+        },
+      ],
     };
   },
   data() {

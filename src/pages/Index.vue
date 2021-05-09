@@ -94,6 +94,13 @@ export default {
   metaInfo: {
     titleTemplate: "",
     title: "return $lock;",
+    meta: [
+      {
+        name: "description",
+        content:
+          "自分の作成したツールや開発環境やプログラミングについて書くブログです。たまに技術に関係ないことも書きます。",
+      },
+    ],
     script: [
       {
         src: "https://platform.twitter.com/widgets.js",

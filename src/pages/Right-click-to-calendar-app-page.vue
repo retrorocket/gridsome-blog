@@ -55,6 +55,13 @@ export default {
   metaInfo() {
     return {
       title: "Right-Click to Calendarについて",
+      meta: [
+        {
+          name: "description",
+          content:
+            "Right-Click to Calendar について、アプリケーションの概要と関連する情報をまとめたページです。",
+        },
+      ],
     };
   },
 };

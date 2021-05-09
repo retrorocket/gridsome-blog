@@ -70,7 +70,7 @@ export default {
   },
   metaInfo() {
     return {
-      title: this.$page.blogCategory.title,
+      title: `${this.$page.blogCategory.title} の記事一覧`,
     };
   },
 };
