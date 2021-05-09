@@ -9,11 +9,7 @@ const fs = require("fs-extra")
 const CACHE_PATH = "./src/cache/keywords.json"
 const DOMParser = require("universal-dom-parser")
 
-const data = fs.readJsonSync(CACHE_PATH, {
-  encoding: 'utf-8',
-  reviver: null,
-  throws: true
-});
+const data = require(CACHE_PATH)
 
 const keywordCount = data.length;
 

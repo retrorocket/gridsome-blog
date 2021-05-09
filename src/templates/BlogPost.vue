@@ -1,8 +1,10 @@
 <template>
   <div class="site-container line-numbers" ontouchstart="">
     <Readprogress />
-    <Headtitle />
     <!-- .site-header -->
+    <div id="mobile-title">
+      <Headtitle />
+    </div>
     <Headnav />
     <!-- .nav-primary -->
     <div class="site-inner">
@@ -350,6 +352,14 @@ export default {
     position: sticky;
     position: -webkit-sticky;
     top: 0;
+  }
+}
+#mobile-title {
+  display: none;
+}
+@media (max-width: 1023px) {
+  #mobile-title {
+    display: block;
   }
 }
 #content-toc {
