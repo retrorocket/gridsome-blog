@@ -700,8 +700,8 @@ Site Header
 ---------------------------------------------------------------------------------------------------- */
 
 .site-header {
-  background: #fff;
-  /* background: #fff url(//retrorocket.biz/public/img/bg.png) no-repeat right bottom; */
+  line-height: 0;
+  background-color: #75b5c5;
 }
 
 .site-header>.wrap {
@@ -1135,13 +1135,6 @@ Media Queries
   .content, .sidebar-primary, .wrap, .footer-widgets .col-3 .widget-area, .footer-widgets .col-4 .widget-area {
     width: 100%;
   }
-  .header-image .site-header .wrap {
-    background-position: center top;
-  }
-  .site-header>.wrap {
-    padding: 20px 5% 0px;
-    border-bottom: 8px solid #75B5C5;
-  }
   .site-inner {
     padding-top: 40px;
   }
@@ -1284,9 +1277,6 @@ Media Queries
 }
 
 @media (min-width: 1024px) {
-  /* .current_page_item {
-    background: url(//retrorocket.biz/public/img/line.png) repeat-x scroll bottom;
-  } */
   .current_page_item a {
     color: #76b5c5;
   }

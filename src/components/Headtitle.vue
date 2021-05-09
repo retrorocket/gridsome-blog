@@ -68,10 +68,6 @@ query {
 /**
 See: http://kachibito.net/css/simple-css-waves-with-svg
 */
-header {
-  line-height: 0;
-  background-color: #75b5c5;
-}
 .waves {
   position: relative;
   width: 100%;
