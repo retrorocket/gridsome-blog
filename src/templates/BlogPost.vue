@@ -325,6 +325,11 @@ export default {
 </script>
 
 <style scoped>
+@media (min-width: 1024px) {
+  #navigation {
+    border-bottom: 1px solid #ccc;
+  }
+}
 .category-list {
   display: inline;
   padding: 0;
@@ -353,7 +358,7 @@ export default {
   .sticky-area {
     position: sticky;
     position: -webkit-sticky;
-    top: 60px;
+    top: 70px;
   }
 }
 #content-toc {
