@@ -34,3 +34,12 @@
     </div>
   </nav>
 </template>
+
+<style>
+nav {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 30;
+}
+</style>

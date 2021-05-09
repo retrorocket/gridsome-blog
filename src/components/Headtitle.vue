@@ -34,21 +34,21 @@
             xlink:href="#gentle-wave"
             x="48"
             y="0"
-            fill="rgba(117, 181, 197, 0.7)"
+            fill="rgba(255, 255, 255, 0.7)"
           />
           <use
             xlink:href="#gentle-wave"
             x="48"
             y="3"
-            fill="rgba(117, 181, 197, 0.5)"
+            fill="rgba(255, 255, 255, 0.5)"
           />
           <use
             xlink:href="#gentle-wave"
             x="48"
             y="5"
-            fill="rgba(117, 181, 197, 0.3)"
+            fill="rgba(255, 255, 255, 0.3)"
           />
-          <use xlink:href="#gentle-wave" x="48" y="7" fill="#75b5c5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
         </g>
       </svg>
     </div>
@@ -70,6 +70,7 @@ See: http://kachibito.net/css/simple-css-waves-with-svg
 */
 header {
   line-height: 0;
+  background-color: #75b5c5;
 }
 .waves {
   position: relative;

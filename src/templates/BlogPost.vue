@@ -2,9 +2,6 @@
   <div class="site-container line-numbers" ontouchstart="">
     <Readprogress />
     <!-- .site-header -->
-    <div id="mobile-title">
-      <Headtitle />
-    </div>
     <Headnav />
     <!-- .nav-primary -->
     <div class="site-inner">
@@ -341,6 +338,11 @@ export default {
 </style>
 
 <style>
+[id^="title-"] {
+  display: block;
+  padding-top: 70px;
+  margin-top: -70px;
+}
 #toc-wrapper {
   display: none;
 }
@@ -351,15 +353,7 @@ export default {
   .sticky-area {
     position: sticky;
     position: -webkit-sticky;
-    top: 0;
-  }
-}
-#mobile-title {
-  display: none;
-}
-@media (max-width: 1023px) {
-  #mobile-title {
-    display: block;
+    top: 60px;
   }
 }
 #content-toc {
