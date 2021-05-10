@@ -2,6 +2,7 @@
   <div class="site-container line-numbers" ontouchstart="">
     <Readprogress />
     <!-- .site-header -->
+    <Headtitlemini />
     <Headnav />
     <!-- .nav-primary -->
     <div class="site-inner">
@@ -183,7 +184,7 @@ import MediumZoom from "medium-zoom";
 import ResizeObserver from "resize-observer-polyfill";
 import Prism from "~/assets/prism.js";
 import Readprogress from "~/components/Readprogress.vue";
-import Headtitle from "~/components/Headtitle.vue";
+import Headtitlemini from "~/components/Headtitlemini.vue";
 import Headnav from "~/components/Headnav.vue";
 import Adsense from "~/components/Adsense.vue";
 import Credit from "~/components/Credit.vue";
@@ -193,7 +194,7 @@ export default {
   components: {
     Adsense,
     Readprogress,
-    Headtitle,
+    Headtitlemini,
     Headnav,
     Credit,
     SearchBox,
