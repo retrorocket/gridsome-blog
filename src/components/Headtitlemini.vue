@@ -26,7 +26,9 @@ query {
 </static-query>
 
 <style scoped>
-.site-title {
-  padding-bottom: 20px;
+@media only screen and (min-width: 1024px) {
+  .site-title {
+    padding-bottom: 20px;
+  }
 }
 </style>
