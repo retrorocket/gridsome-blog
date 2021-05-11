@@ -159,12 +159,12 @@ const zoomImg = (doc) => {
   images.forEach((image) => {
     const origin = image.parentNode.href;
     image.dataset.zoomSrc = origin;
-    if (image.hasAttribute("aria-describedby")) {
-      image.removeAttribute("sizes");
-      image.removeAttribute("width");
-      image.removeAttribute("height");
-      image.removeAttribute("loading");
-    }
+
+    image.removeAttribute("sizes");
+    image.removeAttribute("width");
+    image.removeAttribute("height");
+    image.removeAttribute("loading");
+
     image.parentNode.parentNode.insertBefore(image, image.parentNode);
     image.nextElementSibling.remove();
   });

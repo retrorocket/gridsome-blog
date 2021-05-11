@@ -344,6 +344,12 @@ export default {
 </style>
 
 <style>
+.medium-zoom-overlay {
+  z-index: 2;
+}
+.medium-zoom-image {
+  z-index: 3;
+}
 [id^="title-"] {
   display: block;
   padding-top: 70px;

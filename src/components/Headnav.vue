@@ -36,10 +36,10 @@
 </template>
 
 <style>
-nav {
+#navigation {
   position: sticky;
   position: -webkit-sticky;
   top: 0;
-  z-index: 30;
+  z-index: 1;
 }
 </style>
