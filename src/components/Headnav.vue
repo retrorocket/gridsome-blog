@@ -42,4 +42,7 @@
   top: 0;
   z-index: 1;
 }
+#navigation .wrap {
+  position: relative;
+}
 </style>
