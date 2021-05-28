@@ -13,6 +13,11 @@
         </h1>
       </div>
     </div>
+    <!-- 
+      Copyright (c) 2019 kachibito
+      Released under the MIT license
+      http://opensource.org/licenses/mit-license.php
+    -->
     <!--Waves Container-->
     <div>
       <svg
@@ -67,6 +72,11 @@ query {
 <style scoped>
 /**
 See: http://kachibito.net/css/simple-css-waves-with-svg
+*/
+/** 
+  Copyright (c) 2019 kachibito
+  Released under the MIT license
+  http://opensource.org/licenses/mit-license.php
 */
 .waves {
   position: relative;

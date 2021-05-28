@@ -701,7 +701,7 @@ Site Header
 
 .site-header {
   line-height: 0;
-  background-color: #75b5c5;
+  background: linear-gradient(90deg, #75b5c5, #9ae2d5)
 }
 
 .site-header>.wrap {
