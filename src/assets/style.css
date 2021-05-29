@@ -1189,8 +1189,8 @@ Media Queries
     margin: 17px;
     text-indent: -999px;
     height: 20px;
-    border-top: 4px solid #75B5C5;
-    border-bottom: 4px solid #75B5C5;
+    border-top: 4px solid #9ae2d5;
+    border-bottom: 4px solid #9ae2d5;
     opacity: 0.8;
   }
   .menu-icon:before {
@@ -1199,7 +1199,7 @@ Media Queries
     top: 4px;
     left: 0;
     width: 100%;
-    border-top: 4px solid #75B5C5;
+    border-top: 4px solid #9ae2d5;
   }
   .menu-icon:hover {
     opacity: 1;
@@ -1207,9 +1207,10 @@ Media Queries
   ul.menu-primary {
     position: absolute;
     top: 0px;
-    background-color: #75B5C5;
+    background: linear-gradient(90deg, #75b5c5, #9ae2d5);
     display: none;
     width: 100%;
+    z-index: 20;
   }
   .nav-primary .wrap:hover ul.menu-primary {
     display: block;
@@ -1247,8 +1248,8 @@ Media Queries
   }
   ul.menu-primary a:hover {
     border-bottom: 1px solid #eee;
-    background-color: #99cedb;
-    color: #fff;
+    background-color: #fff;
+    color: #75b5c5;
   }
   ul.menu-primary ul a {
     padding-left: 25px;
