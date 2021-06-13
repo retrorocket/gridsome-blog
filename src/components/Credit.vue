@@ -6,7 +6,7 @@
     </p>
 
     <p class="credit">
-      made with
+      powered by
       <a class="theme-link" href="https://gridsome.org/">Gridsome</a> | theme by
       <a class="theme-link" href="https://themehall.com" title="ThemeHall"
         >ThemeHall</a
