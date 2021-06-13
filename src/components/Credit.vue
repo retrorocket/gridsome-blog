@@ -6,8 +6,8 @@
     </p>
 
     <p class="credit">
-      powered by
-      <a class="theme-link" href="https://gridsome.org/">Gridsome</a> | theme by
+      Powered by
+      <a class="theme-link" href="https://gridsome.org/">Gridsome</a> | Theme by
       <a class="theme-link" href="https://themehall.com" title="ThemeHall"
         >ThemeHall</a
       >
