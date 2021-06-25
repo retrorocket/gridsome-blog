@@ -1,13 +1,10 @@
 # このプロジェクトは何？
 
-[Gridsome](https://gridsome.org/)を使用して、WordPressを静的にホスティングするためのプロジェクトです。  
-WordPressのAPIから記事を取得してGridsomeでビルドしています。
+[Gridsome](https://gridsome.org/)を使用して、Markdownをソースにしてブログ記事をビルドしています。
 
 ## ブログのURL
 
 * https://retrorocket.biz
-  - Gridsomeでビルドした静的ファイルをホスティングするサーバーと、WordPressを運用しているサーバーを分けて運用しています。
-  - WordPressはHeadless CMSとして使用しています。
 
 # Default starter for Gridsome
 
