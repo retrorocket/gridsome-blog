@@ -10,16 +10,27 @@ module.exports = {
   permalinks: {
     trailingSlash: false,
   },
+
+  templates: {
+    BlogPost: '/archives/:postid',
+    BlogCategory: '/archives/category/:title'
+  },
+
   plugins: [
     {
-      use: "@gridsome/source-wordpress",
+      // Create posts from markdown files
+      use: '@gridsome/source-filesystem',
       options: {
-        baseUrl: process.env.API_URL,
-        typeName: "blog",
-        apiBase: 'wp-json',
-        perPage: 10,
-        concurrent: 1,
-      },
+        typeName: 'BlogPost',
+        path: 'content/posts/*.md',
+        refs: {
+          // Creates a GraphQL collection from 'tags' in front-matter and adds a reference.
+          categories: {
+            typeName: 'BlogCategory',
+            create: true
+          }
+        },
+      }
     },
     {
       use: "gridsome-plugin-feed",
@@ -39,7 +50,7 @@ module.exports = {
         maxItems: 25,
         nodeToFeedItem: node => ({
           title: node.title,
-          date: new Date(node.dateGmt),
+          date: new Date(node.date),
           content: node.excerpt
         })
       }
@@ -59,9 +70,17 @@ module.exports = {
       }
     }
   ],
-  templates: {
-    BlogCategory: "/archives/category/:slug",
-    BlogPost: "/archives/:id",
+  transformers: {
+    //Add markdown support to all file-system sources
+    remark: {
+      externalLinksTarget: '_blank',
+      externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
+      anchorClassName: 'icon icon-link',
+      plugins: [
+        ['@gridsome/remark-prismjs', { showLineNumbers: true }],
+        ['gridsome-remark-figure-caption', { captionClassName: "wp-caption-text", figureClassName: "wp-caption alignnone", }],
+      ]
+    }
   },
   icon: {
     favicon: "./src/favicon.png",
@@ -72,5 +91,3 @@ module.exports = {
     },
   },
 };
-
-

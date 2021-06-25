@@ -5,35 +5,49 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 const { tokenize } = require("kuromojin")
+const { DateTime } = require("luxon");
+
 const fs = require("fs-extra")
 const CACHE_PATH = "./src/cache/keywords.json"
-const DOMParser = require("universal-dom-parser")
-
 const data = require(CACHE_PATH)
-
 const keywordCount = data.length;
 
 module.exports = api => {
-  api.loadSource(({ addSchemaTypes, addSchemaResolvers }) => {
-    addSchemaTypes(`
-      type Toc implements Node {
-        id: ID!
-        textContent: String
-        nodeName: String
-      }
-    `)
+  api.loadSource(({ addSchemaResolvers }) => {
 
     // See:
     // https://www.broadleaves.dev/posts/2019-08-03-gridsome-flexsearch/
     // https://blog.solunita.net/posts/develop-blog-by-gridsome-from-scratch-full-text-search/
     addSchemaResolvers({
+      RemarkHeading: {
+        nodeName: {
+          type: "String",
+          resolve(node) {
+            return "level-h" + node.depth;
+          }
+        }
+      },
       BlogPost: {
+        dateWithOffset: {
+          type: "Date",
+          args: {
+            format: 'String'
+          },
+          resolve(node, args) {
+            const datestr = new Date(node.date || null).toISOString();
+            const dt = DateTime.fromISO(datestr).setZone("Asia/Tokyo");
+            if (args.format) {
+              return dt.toFormat(args.format);
+            }
+            return dt.toISO();
+          }
+        },
         keywords: {
           type: "String",
           resolve(node) {
             // keywordsを生成済みの記事はキャッシュのjsonファイルを参照する
             for (let i in data) {
-              if (data[i].id === node.id) {
+              if (data[i].id === String(node.postid)) {
                 return data[i].keyword
               }
             }
@@ -52,7 +66,7 @@ module.exports = api => {
                 .filter(word => word.length >= MIN_LENGTH)
               const result = [...new Set(keywords.concat(newwords))]
               const keywordStr = result.join(' ')
-              if (data.unshift({ id: node.id, keyword: keywordStr }) > keywordCount + 1) {
+              if (data.unshift({ id: String(node.postid), keyword: keywordStr }) > keywordCount + 1) {
                 return keywordStr;
               }
               fs.writeJsonSync(CACHE_PATH, data,
@@ -67,35 +81,6 @@ module.exports = api => {
             })
           },
         },
-        tocTargets: {
-          type: "[Toc]",
-          resolve(node) {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(`<html>${node.content}</html>`, 'text/html');
-            const targets = doc.querySelectorAll("h2,h3,h4");
-            const tocTargets = [];
-            let countId = 1;
-            targets.forEach((target) => {
-              tocTargets.push({
-                id: `title-${countId}`,
-                textContent: target.textContent,
-                nodeName: `level-${target.nodeName.toLowerCase()}`,
-              });
-              countId++;
-            });
-            return tocTargets;
-          }
-        },
-        convertedContent: {
-          type: "String",
-          resolve(node) {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(`<html>${node.content}</html>`, 'text/html');
-            zoomImg(doc);
-            targetIndex(doc);
-            return doc.body.innerHTML;
-          }
-        },
       }
     })
   })
@@ -106,8 +91,8 @@ module.exports = api => {
       allBlogPost {
         edges {
           node {
-            year: date(format: "YYYY")
-            month: date(format: "YYYY,MM")
+            year: dateWithOffset(format: "yyyy")
+            month: dateWithOffset(format: "yyyy,MM")
           }
         }
       }
@@ -128,53 +113,20 @@ module.exports = api => {
         component: "./src/templates/Years.vue",
         context: {
           displayYear: year,
-          periodStartDate: `${year}-01-01T00:00:00.000Z`,
-          periodEndDate: `${year}-12-31T23:59:59.999Z`
         }
       });
     });
 
     yearMonths.forEach(yearMonthStr => {
       const yearMonth = yearMonthStr.split(",");
-      const date = new Date(yearMonth[0], yearMonth[1], 0);
-      const year = date.getFullYear();
-      const month = ("00" + (date.getMonth() + 1)).slice(-2);
-      const day = ("00" + date.getDate()).slice(-2);
       createPage({
         path: `/archives/date/${yearMonth[0]}/${yearMonth[1]}`,
         component: "./src/templates/Years.vue",
         context: {
           displayYear: `${yearMonth[0]}/${yearMonth[1]}`,
-          periodStartDate: `${year}-${month}-01T00:00:00.000Z`,
-          periodEndDate: `${year}-${month}-${day}T23:59:59.999Z`
         }
       });
     });
 
   })
-}
-
-const zoomImg = (doc) => {
-  const images = doc.querySelectorAll("a img");
-  images.forEach((image) => {
-    const origin = image.parentNode.href;
-    image.dataset.zoomSrc = origin;
-
-    image.removeAttribute("sizes");
-    image.removeAttribute("width");
-    image.removeAttribute("height");
-    image.removeAttribute("loading");
-
-    image.parentNode.parentNode.insertBefore(image, image.parentNode);
-    image.nextElementSibling.remove();
-  });
-}
-
-const targetIndex = (doc) => {
-  const targets = doc.querySelectorAll("h2,h3,h4");
-  let countId = 1;
-  targets.forEach((target) => {
-    target.id = `title-${countId}`;
-    countId++;
-  });
 }

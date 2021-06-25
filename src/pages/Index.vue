@@ -26,9 +26,9 @@
             <div class="entry-meta">
               <time
                 class="entry-time"
-                :datetime="`${edge.node.fulldate}+09:00`"
+                :datetime="`${edge.node.fulldate}`"
                 itemprop="datePublished"
-                >{{ edge.node.date }}</time
+                >{{ edge.node.dateWithOffset }}</time
               >
               <span
                 class="entry-author"
@@ -126,9 +126,8 @@ query ($page: Int) {
         excerpt
         title
         path
-        slug
-        date (format: "YYYY/MM/DD")
-        fulldate: date
+        dateWithOffset (format: "yyyy/MM/dd")
+        fulldate: dateWithOffset
         categories {
           title
           path

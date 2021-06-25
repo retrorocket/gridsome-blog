@@ -24,12 +24,12 @@
               />
             </p>
             <p v-if="searchResults.length === 0">No results found.</p>
-            <ul>
+            <ul class="post-list">
               <li v-for="result in searchResults" :key="result.id">
                 <g-link :to="result.path">
                   <span v-html="result.title" />
                 </g-link>
-                {{ result.date }}
+                {{ result.dateWithOffset }}
               </li>
             </ul>
           </div>
@@ -48,7 +48,7 @@ query {
         path
         title
         keywords
-        date (format: "YYYY/MM/DD")
+        dateWithOffset (format: "yyyy/MM/dd")
       }
     }
   }
@@ -106,3 +106,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.post-list li {
+  margin-bottom: 8px;
+}
+</style>

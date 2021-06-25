@@ -26,7 +26,7 @@
               <ul>
                 <li v-for="edge in $static.recently.edges" :key="edge.node.id">
                   <g-link :to="edge.node.path">{{ edge.node.title }}</g-link>
-                  {{ edge.node.date }}
+                  {{ edge.node.dateWithOffset }}
                 </li>
               </ul>
             </div>
@@ -111,21 +111,20 @@
 
 <static-query>
 query {
-  recently: allBlogPost(sortBy: "published_at", order: ASC, limit:10) {
+  recently: allBlogPost(limit:10) {
     edges {
       node {
         id
         title
         path
-        date (format: "YYYY/MM/DD")
+        dateWithOffset (format: "yyyy/MM/dd")
       }
     }
   }
-  category: allBlogCategory(sortBy: "slug", order: ASC) {
+  category: allBlogCategory(sortBy: "title", order: ASC) {
     edges { 
       node { 
         title
-        slug
         path
       }
     }

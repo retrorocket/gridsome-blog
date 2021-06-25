@@ -3,7 +3,9 @@
 
 import DefaultLayout from '~/layouts/Default.vue'
 import '~/assets/style.css'
-import '~/assets/prism.css'
+import 'prismjs/themes/prism-okaidia.css'
+// Prism default CSS about line numbers
+import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import { VueReCaptcha } from 'vue-recaptcha-v3'
 
 export default function (Vue, { router, head, isClient }) {

@@ -15,11 +15,20 @@
           <!-- .entry-header -->
           <div class="entry-content" itemprop="text">
             <ul class="post-list">
-              <li v-for="{ node } in $page.years.edges" :key="node.id">
-                <g-link :to="node.path">
-                  <span v-html="node.title" />
+              <li
+                v-for="(month, mindex) in new Set(
+                  $page.years.edges.filter(
+                    (e) =>
+                      e.node.month === $context.displayYear ||
+                      e.node.year === $context.displayYear
+                  )
+                )"
+                :key="`m-${mindex}`"
+              >
+                <g-link :to="month.node.path">
+                  <span v-html="month.node.title" />
                 </g-link>
-                {{ node.date }}
+                {{ month.node.dateWithOffset }}
               </li>
             </ul>
           </div>
@@ -30,14 +39,16 @@
 </template>
 
 <page-query>
-query PostsByDate($periodStartDate: Date, $periodEndDate: Date) {
-  years: allBlogPost(filter: {date: {between: [$periodStartDate, $periodEndDate]} }) {
+query PostsByDate {
+  years: allBlogPost {
     edges {
       node {
         id
         title
         path
-        date(format: "YYYY/MM/DD")
+        year: dateWithOffset(format: "yyyy")
+        month: dateWithOffset(format: "yyyy/MM")
+        dateWithOffset(format: "yyyy/MM/dd")
       }
     }
   }

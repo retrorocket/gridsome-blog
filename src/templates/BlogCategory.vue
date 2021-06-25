@@ -22,7 +22,7 @@
                 <g-link :to="node.path">
                   <span v-html="node.title" />
                 </g-link>
-                {{ node.date }}
+                {{ node.dateWithOffset }}
               </li>
             </ul>
           </div>
@@ -53,7 +53,7 @@ query BlogCategory ($id: ID!, $page: Int) {
             id
             title
             path
-            date (format: "YYYY/MM/DD")
+            dateWithOffset (format: "yyyy/MM/dd")
           }
         }
       }

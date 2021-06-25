@@ -37,11 +37,11 @@
 
 <static-query>
 query {
-  years: allBlogPost(sortBy: "published_at", order: ASC) {
+  years: allBlogPost {
     edges { 
       node { 
-        year: date(format: "YYYY")
-        month: date(format: "YYYY/MM")
+        year: dateWithOffset(format: "yyyy")
+        month: dateWithOffset(format: "yyyy/MM")
       }
     }
   }

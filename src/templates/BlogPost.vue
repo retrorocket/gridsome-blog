@@ -31,9 +31,9 @@
                 <div class="entry-meta">
                   <time
                     class="entry-time"
-                    :datetime="`${$page.blogPost.fulldate}+09:00`"
+                    :datetime="`${$page.blogPost.fulldate}`"
                     itemprop="datePublished"
-                    >{{ $page.blogPost.date }}</time
+                    >{{ $page.blogPost.dateWithOffset }}</time
                   >
                   <span
                     class="entry-author"
@@ -50,7 +50,7 @@
               <div
                 class="entry-content"
                 itemprop="articleBody"
-                v-html="$page.blogPost.convertedContent"
+                v-html="$page.blogPost.content"
                 ref="entryContent"
               />
               <footer class="entry-footer">
@@ -81,20 +81,20 @@
           <section
             id="toc-wrapper"
             class="widget widget-1 even widget-first widget_text"
-            v-show="$page.blogPost.tocTargets.length"
+            v-show="$page.blogPost.headings.length"
           >
             <div class="widget-wrap">
               <h4 class="widget-title">Table of contents</h4>
               <ul id="content-toc">
                 <li
-                  v-for="(target, index) in $page.blogPost.tocTargets"
-                  :key="target.id"
+                  v-for="(target, index) in $page.blogPost.headings"
+                  :key="target.anchor"
                   :class="{
                     current: index === position,
                     [target.nodeName]: true,
                   }"
                 >
-                  <a :href="`#${target.id}`">{{ target.textContent }}</a>
+                  <a :href="`${target.anchor}`">{{ target.value }}</a>
                 </li>
               </ul>
             </div>
@@ -155,20 +155,19 @@ query BlogPost($path: String){
   blogPost(path:$path) {
     id
     title
-    convertedContent
-    date (format: "YYYY/MM/DD")
-    fulldate: date
-    path
-    excerpt
-    tocTargets {
-      id
-      textContent
+    content
+    headings {
+      value
+      anchor
       nodeName
     }
+    dateWithOffset (format: "yyyy/MM/dd")
+    fulldate: dateWithOffset
+    path
+    excerpt
     categories {
       id
       title
-      slug
       path
     }
   }
@@ -182,7 +181,6 @@ query BlogPost($path: String){
 <script>
 import MediumZoom from "medium-zoom";
 import ResizeObserver from "resize-observer-polyfill";
-import Prism from "~/assets/prism.js";
 import Readprogress from "~/components/Readprogress.vue";
 import Headtitlemini from "~/components/Headtitlemini.vue";
 import Headnav from "~/components/Headnav.vue";
@@ -212,7 +210,6 @@ export default {
     this.observer.disconnect(this.$refs.entryContent);
   },
   mounted() {
-    this.prismHighlightAll();
     this.zoomImg();
     this.twttrLoad();
     this.pageId = this.$page.blogPost.id;
@@ -224,7 +221,6 @@ export default {
   },
   updated() {
     if (this.$page.blogPost.id !== this.pageId) {
-      this.prismHighlightAll();
       this.zoomImg();
       this.twttrLoad();
       this.pageId = this.$page.blogPost.id;
@@ -246,7 +242,7 @@ export default {
       this.$nextTick(() => {
         try {
           const targets = document.querySelectorAll(
-            ".entry-content h2,.entry-content h3,.entry-content h4"
+            ".entry-content h2,.entry-content h3,.entry-content h4,.entry-content h5"
           );
           this.offsetTops = [];
           targets.forEach((target) => {
@@ -256,15 +252,6 @@ export default {
               window.pageYOffset || document.documentElement.scrollTop;
             this.offsetTops.push(rect.top + scrollTop);
           });
-        } catch (error) {
-          console.error(error);
-        }
-      });
-    },
-    prismHighlightAll() {
-      this.$nextTick(() => {
-        try {
-          Prism.highlightAll();
         } catch (error) {
           console.error(error);
         }
@@ -344,13 +331,26 @@ export default {
 </style>
 
 <style>
+.entry-content figure {
+  display: table;
+}
+.entry-content img {
+  max-height: 350px;
+}
 .medium-zoom-overlay {
   z-index: 2;
 }
 .medium-zoom-image {
   z-index: 3;
 }
-[id^="title-"] {
+.entry-content ul li p {
+  padding: 0;
+  margin: 0;
+}
+.entry-content h2[id],
+.entry-content h3[id],
+.entry-content h4[id],
+.entry-content h5[id] {
   display: block;
   padding-top: 70px;
   margin-top: -70px;
@@ -392,6 +392,9 @@ export default {
 }
 #content-toc .level-h4 {
   padding-left: 30px;
+}
+#content-toc .level-h5 {
+  padding-left: 40px;
 }
 #content-toc li.current {
   border-left: 3px solid #75b5c5;
