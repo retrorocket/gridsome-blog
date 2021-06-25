@@ -20,6 +20,9 @@ jobs:
         with:
           submodules: true
           token: ${{ secrets.PERSONAL_TOKEN }}
+      - name: Update submodule
+        run: |
+          git submodule update --remote ./content/
       - uses: actions/cache@v2
         with:
           path: '**/node_modules'
