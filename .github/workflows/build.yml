@@ -17,8 +17,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: echo env
-        run: echo "${{ secrets.API_URL }}" > .env
+        with:
+          submodules: true
+          token: ${{ secrets.PERSONAL_TOKEN }}
       - uses: actions/cache@v2
         with:
           path: '**/node_modules'
