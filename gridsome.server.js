@@ -69,14 +69,16 @@ module.exports = api => {
               if (data.unshift({ id: String(node.postid), keyword: keywordStr }) > keywordCount + 1) {
                 return keywordStr;
               }
-              fs.writeJsonSync(CACHE_PATH, data,
-                {
-                  encoding: 'utf-8',
-                  replacer: null,
-                  spaces: "  "
-                },
-                err => {
-                });
+              if (process.env.NODE_ENV !== "development") {
+                fs.writeJsonSync(CACHE_PATH, data,
+                  {
+                    encoding: 'utf-8',
+                    replacer: null,
+                    spaces: "  "
+                  },
+                  err => {
+                  });
+              }
               return keywordStr;
             })
           },
