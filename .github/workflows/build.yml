@@ -41,11 +41,16 @@ jobs:
           remote_port: ${{secrets.SSH_PORT}}
           remote_user: ${{secrets.SSH_USERNAME}}
           remote_key: ${{secrets.SSH_PRIVATE_KEY}}
-      - name: Setup Git Config
-        run: |
-          git config --local user.email "1858830+retrorocket@users.noreply.github.com"
-          git config --local user.name "retrorocket"
       - name: Commit files
-        continue-on-error: true
         run: |
-          git add . && git commit -m "Update from Actions" -a ; git push origin master
+          if ! git diff --exit-code --quiet
+          git config --local user.email "1858830+retrorocket@users.noreply.github.com""
+          git config --local user.name "github-actions[bot]"
+          git add .
+          git commit -m "Add changes" -a
+      - name: Push changes
+        continue-on-error: true
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}          
