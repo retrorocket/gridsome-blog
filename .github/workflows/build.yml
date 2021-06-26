@@ -18,10 +18,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          repository: retrorocket/blog-contents
-          path: content
+          # repository: retrorocket/blog-contents
+          # path: content
           submodules: true
-          token: ${{ secrets.PERSONAL_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Update submodule
         run: |
           git submodule update --remote ./content/
