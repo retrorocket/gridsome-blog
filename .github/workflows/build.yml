@@ -17,14 +17,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Checkout other repo
+        uses: actions/checkout@v2
         with:
-          # repository: retrorocket/blog-contents
-          # path: content
-          submodules: true
+          repository: retrorocket/blog-contents
+          path: content
           token: ${{ secrets.PERSONAL_TOKEN }}
-      - name: Update submodule
-        run: |
-          git submodule update --remote ./content/
+      #- name: Update submodule
+      #  run: |
+      #    git submodule update --remote ./content/
       - uses: actions/cache@v2
         with:
           path: '**/node_modules'
