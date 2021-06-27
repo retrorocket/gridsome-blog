@@ -44,6 +44,16 @@ jobs:
           remote_port: ${{secrets.SSH_PORT}}
           remote_user: ${{secrets.SSH_USERNAME}}
           remote_key: ${{secrets.SSH_PRIVATE_KEY}}
+      - name: rsync deployments archives
+        uses: burnett01/rsync-deployments@4.1
+        with:
+          switches: -avzr --delete --dry-run
+          path: dist/archives/
+          remote_path: ${{secrets.DEPLOY_PATH}}archives/
+          remote_host: ${{secrets.SSH_HOSTNAME}}
+          remote_port: ${{secrets.SSH_PORT}}
+          remote_user: ${{secrets.SSH_USERNAME}}
+          remote_key: ${{secrets.SSH_PRIVATE_KEY}}
       - name: Commit files
         run: |
           git add -N .
