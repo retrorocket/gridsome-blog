@@ -17,7 +17,7 @@ module.exports = {
       {
         path: (node) => {
           const lower = node.title.toLowerCase();
-          return `/archives/category/${lower}`
+          return `/archives/category/${lower}`;
         }
       }
     ],
