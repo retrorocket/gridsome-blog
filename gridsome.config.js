@@ -13,7 +13,14 @@ module.exports = {
 
   templates: {
     BlogPost: '/archives/:postid',
-    BlogCategory: '/archives/category/:title'
+    BlogCategory: [
+      {
+        path: (node) => {
+          const lower = node.title.toLowerCase();
+          return `/archives/category/${lower}`
+        }
+      }
+    ],
   },
 
   plugins: [
