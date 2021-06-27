@@ -37,7 +37,7 @@ jobs:
       - name: rsync deployments
         uses: burnett01/rsync-deployments@4.1
         with:
-          switches: -avzr --exclude "/archives" --dry-run
+          switches: -avzr --exclude "/archives" --exclude "/assets"
           path: dist/
           remote_path: ${{secrets.DEPLOY_PATH}}
           remote_host: ${{secrets.SSH_HOSTNAME}}
@@ -47,9 +47,19 @@ jobs:
       - name: rsync deployments archives
         uses: burnett01/rsync-deployments@4.1
         with:
-          switches: -avzr --delete --dry-run
+          switches: -avzr --delete
           path: dist/archives/
           remote_path: ${{secrets.DEPLOY_PATH}}/archives
+          remote_host: ${{secrets.SSH_HOSTNAME}}
+          remote_port: ${{secrets.SSH_PORT}}
+          remote_user: ${{secrets.SSH_USERNAME}}
+          remote_key: ${{secrets.SSH_PRIVATE_KEY}}
+      - name: rsync deployments assets
+        uses: burnett01/rsync-deployments@4.1
+        with:
+          switches: -avzr --delete
+          path: dist/assets/
+          remote_path: ${{secrets.DEPLOY_PATH}}/assets
           remote_host: ${{secrets.SSH_HOSTNAME}}
           remote_port: ${{secrets.SSH_PORT}}
           remote_user: ${{secrets.SSH_USERNAME}}
