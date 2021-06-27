@@ -49,7 +49,7 @@ jobs:
         with:
           switches: -avzr --delete --dry-run
           path: dist/archives/
-          remote_path: ${{secrets.DEPLOY_PATH}}archives/
+          remote_path: ${{secrets.DEPLOY_PATH}}/archives
           remote_host: ${{secrets.SSH_HOSTNAME}}
           remote_port: ${{secrets.SSH_PORT}}
           remote_user: ${{secrets.SSH_USERNAME}}
