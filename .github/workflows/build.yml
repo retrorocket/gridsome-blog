@@ -37,7 +37,7 @@ jobs:
       - name: rsync deployments
         uses: burnett01/rsync-deployments@4.1
         with:
-          switches: -avzr
+          switches: -avzr --exclude "/archives" --dry-run
           path: dist/
           remote_path: ${{secrets.DEPLOY_PATH}}
           remote_host: ${{secrets.SSH_HOSTNAME}}
