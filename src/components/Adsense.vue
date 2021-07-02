@@ -10,7 +10,7 @@
     :data-ad-client="adClient"
     :data-ad-slot="adSlot"
     :data-ad-format="adFormat"
-    :data-full-width-responsive="false"
+    :data-full-width-responsive="adResponsive"
     :data-ad-layout-key="adLayoutKey"
     :style="adStyle"
   />
