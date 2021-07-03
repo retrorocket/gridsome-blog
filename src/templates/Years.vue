@@ -52,6 +52,9 @@ query PostsByDate {
       }
     }
   }
+  metadata {
+    siteUrl
+  }
 }
 </page-query>
 
@@ -59,6 +62,12 @@ query PostsByDate {
 export default {
   metaInfo() {
     return {
+      link: [
+        {
+          rel: "canonical",
+          href: this.$page.metadata.siteUrl + this.$context.path,
+        },
+      ],
       title: `${this.$context.displayYear} の記事一覧`,
     };
   },

@@ -41,6 +41,7 @@
 <page-query>
 query BlogCategory ($id: ID!, $page: Int) {
   blogCategory(id: $id) {
+    path
     title
     belongsTo(page: $page, perPage: 100) @paginate {
       pageInfo {
@@ -59,6 +60,9 @@ query BlogCategory ($id: ID!, $page: Int) {
       }
     }
   }
+  metadata {
+    siteUrl
+  }
 }
 </page-query>
 
@@ -70,6 +74,12 @@ export default {
   },
   metaInfo() {
     return {
+      link: [
+        {
+          rel: "canonical",
+          href: this.$page.metadata.siteUrl + this.$page.blogCategory.path,
+        },
+      ],
       title: `${this.$page.blogCategory.title} の記事一覧`,
     };
   },
