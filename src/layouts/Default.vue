@@ -167,7 +167,7 @@ pre .google-auto-placed {
 .entry-wrap .google-auto-placed {
   margin-top: 15px;
   margin-bottom: 30px;
-  overflow: scroll !important;
+  overflow-x: auto !important;
 }
 .entry-wrap .google-auto-placed ins {
   max-width: 100% !important;
