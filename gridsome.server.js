@@ -115,6 +115,7 @@ module.exports = api => {
         component: "./src/templates/Years.vue",
         context: {
           displayYear: year,
+          path: `/archives/date/${year}`,
         }
       });
     });
