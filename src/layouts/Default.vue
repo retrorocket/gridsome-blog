@@ -171,7 +171,6 @@ pre .google-auto-placed {
 }
 .entry-wrap .google-auto-placed ins {
   max-width: 100% !important;
-  overflow: scroll !important;
 }
 .grecaptcha-badge {
   visibility: hidden;
