@@ -167,7 +167,11 @@ pre .google-auto-placed {
 .entry-wrap .google-auto-placed {
   margin-top: 15px;
   margin-bottom: 30px;
-  max-width: 690px;
+  overflow: scroll !important;
+}
+.entry-wrap .google-auto-placed ins {
+  max-width: 100% !important;
+  overflow: scroll !important;
 }
 .grecaptcha-badge {
   visibility: hidden;
