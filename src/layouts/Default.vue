@@ -175,12 +175,6 @@ pre .google-auto-placed {
 .grecaptcha-badge {
   visibility: hidden;
 }
-
-@media only screen and (max-width: 1023px) {
-  .entry-wrap .google-auto-placed {
-    max-width: 100%;
-  }
-}
 </style>
 
 <script>
