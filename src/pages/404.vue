@@ -1,5 +1,5 @@
 <template>
-  <div class="site-container line-numbers" ontouchstart="">
+  <div class="site-container line-numbers">
     <Headtitle />
     <!-- .site-header -->
     <Headnav />
