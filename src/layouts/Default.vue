@@ -54,6 +54,8 @@
                     border="0"
                     src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B008B4AOSA&Format=_SL250_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=retrorocket00-22&language=ja_JP"
                     alt="モンスーノ ロック"
+                    width="250"
+                    height="221"
                   />
                 </a>
                 <br />Amazon.co.jp
@@ -171,9 +173,6 @@ pre .google-auto-placed {
 }
 .entry-wrap .google-auto-placed ins {
   max-width: 100% !important;
-}
-.grecaptcha-badge {
-  visibility: hidden;
 }
 </style>
 

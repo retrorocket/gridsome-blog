@@ -8195,11 +8195,6 @@ readdirp@~3.6.0:
   dependencies:
     picomatch "^2.2.1"
 
-recaptcha-v3@^1.8.0:
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/recaptcha-v3/-/recaptcha-v3-1.9.1.tgz#a90af4d7901cd51bef9c4cae593d700a68a9b21b"
-  integrity sha512-5WEZAjG29FhUEnWrl9WzSGm52XKVDF6NBRv1WWOOzX2H3Xx2zU/XtvZdmpDu8lQYpfacCcDPTpGca5B5BEDWTA==
-
 redent@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/redent/-/redent-1.0.0.tgz#cf916ab1fd5f1f16dfb20822dd6ec7f730c2afde"
@@ -10203,13 +10198,6 @@ vue-read-progress@^1.0.4:
   integrity sha512-IAMoax2o0EYBuhIWirrnWwgVCIz8Cz9k/i5heHdjmuL8qqm7oZpx8vU4EttbW7BBGKdC5t53cadDdReNvT0dLA==
   dependencies:
     vue "^2.6.7"
-
-vue-recaptcha-v3@^1.9.0:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/vue-recaptcha-v3/-/vue-recaptcha-v3-1.9.0.tgz#6315ea07e2ae34abbb11e840ab9f18a427c5d53b"
-  integrity sha512-WQIlhcOcETk3SYbEC88podUSq1J7UjmHpKgJhSy0Xm3DAjTIPjl19g9kn5KRdyTxNLiS/eR5C6H3Jk3c7b9baA==
-  dependencies:
-    recaptcha-v3 "^1.8.0"
 
 vue-router@^3.1.3:
   version "3.5.2"

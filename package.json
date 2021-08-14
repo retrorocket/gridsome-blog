@@ -22,7 +22,6 @@
     "luxon": "^1.27.0",
     "medium-zoom": "^1.0.6",
     "resize-observer-polyfill": "^1.5.1",
-    "vue-read-progress": "^1.0.4",
-    "vue-recaptcha-v3": "^1.9.0"
+    "vue-read-progress": "^1.0.4"
   }
 }
