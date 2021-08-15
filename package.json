@@ -16,7 +16,6 @@
     "flexsearch": "^0.6.32",
     "gridsome": "^0.7.21",
     "gridsome-plugin-feed": "^1.0.2",
-    "gridsome-plugin-pwa": "^0.0.18",
     "gridsome-remark-figure-caption": "^1.2.0",
     "kuromojin": "^2.0.0",
     "luxon": "^1.27.0",

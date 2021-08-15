@@ -75,25 +75,6 @@ module.exports = {
         }
       }
     },
-    {
-      use: "gridsome-plugin-pwa",
-      options: {
-        title: "return $lock;",
-        startUrl: "https://retrorocket.biz/",
-        display: "standalone",
-        statusBarStyle: "default",
-        manifestPath: "/manifest.json",
-        disableServiceWorker: false,
-        serviceWorkerPath: "/service-worker.js",
-        cachedFileTypes: "png,jpg,jpeg,svg,woff,woff2",
-        shortName: "return $lock;",
-        themeColor: "#98DFD4",
-        backgroundColor: "#FFFFFF",
-        icon: "src/apple-touch-icon.png",
-        msTileImage: "",
-        msTileColor: "#98DFD4"
-      }
-    }
   ],
   transformers: {
     //Add markdown support to all file-system sources
