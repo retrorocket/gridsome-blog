@@ -55,19 +55,5 @@ export default {
       default: null,
     },
   },
-  mounted() {
-    this.showAd();
-  },
-  methods: {
-    showAd() {
-      this.$nextTick(() => {
-        try {
-          (window.adsbygoogle = window.adsbygoogle || []).push({});
-        } catch (error) {
-          console.error(error);
-        }
-      });
-    },
-  },
 };
 </script>
