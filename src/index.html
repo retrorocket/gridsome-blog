@@ -8,31 +8,6 @@
 <body ${bodyAttrs}>
   ${app}
   ${scripts}
-  <script>
-    if ("ontouchstart" in document.documentElement) {
-      document.addEventListener('touchstart', () => { }, { passive: true });
-    }
-    // See: https://blog.zdienos.com/2019/03/mempercepat-loading-blog-yang-terpasang-iklan-google-adsense.html
-    //<![CDATA[
-    //lazy load ads
-    let lazyloadads = false;
-    window.addEventListener("scroll", () => {
-      if ((document.documentElement.scrollTop != 0 && lazyloadads === false) || (document.body.scrollTop != 0 && lazyloadads === false)) {
-
-        (() => {
-          let ad = document.createElement('script');
-          ad.type = 'text/javascript';
-          ad.async = true;
-          ad.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
-          let sc = document.getElementsByTagName('script')[0];
-          sc.parentNode.insertBefore(ad, sc);
-        })();
-
-        lazyloadads = true;
-      }
-    }, true)
-    //]]>
-  </script>
 </body>
 
 </html>

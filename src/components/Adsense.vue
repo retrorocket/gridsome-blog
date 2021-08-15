@@ -55,18 +55,34 @@ export default {
       default: null,
     },
   },
+  data() {
+    return {
+      lazyloadads: false,
+    };
+  },
   mounted() {
-    this.showAd();
+    this.lazyloadads = false;
+    window.addEventListener("scroll", this.onScrollLoad);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.onScrollLoad);
   },
   methods: {
-    showAd() {
-      this.$nextTick(() => {
-        try {
-          (window.adsbygoogle = window.adsbygoogle || []).push({});
-        } catch (error) {
-          console.error(error);
-        }
-      });
+    onScrollLoad() {
+      if (
+        (document.documentElement.scrollTop != 0 && !this.lazyloadads) ||
+        (document.body.scrollTop != 0 && !this.lazyloadads)
+      ) {
+        let ad = document.createElement("script");
+        ad.type = "text/javascript";
+        ad.async = true;
+        ad.src =
+          "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+        let sc = document.getElementsByTagName("script")[0];
+        sc.parentNode.insertBefore(ad, sc);
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+        this.lazyloadads = true;
+      }
     },
   },
 };

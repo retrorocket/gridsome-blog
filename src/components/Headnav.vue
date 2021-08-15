@@ -46,3 +46,21 @@
   position: relative;
 }
 </style>
+
+<script>
+export default {
+  mounted() {
+    window.addEventListener("scroll", this.onTouchStart);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.onTouchStart);
+  },
+  methods: {
+    onTouchStart() {
+      if ("ontouchstart" in document.documentElement) {
+        document.addEventListener("touchstart", () => {}, { passive: true });
+      }
+    },
+  },
+};
+</script>
