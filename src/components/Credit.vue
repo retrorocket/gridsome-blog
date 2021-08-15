@@ -25,6 +25,7 @@ export default {
   mounted() {
     this.lazyloadads = false;
     window.addEventListener("scroll", this.onScrollLoad);
+    this.destroyServiceWorker;
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.onScrollLoad);
@@ -50,6 +51,13 @@ export default {
     destroyPagead() {
       const sc = document.getElementById("pagead2");
       sc.parentNode.removeChild(sc);
+    },
+    destroyServiceWorker() {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      });
     },
   },
 };
