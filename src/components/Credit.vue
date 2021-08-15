@@ -58,6 +58,15 @@ export default {
           registration.unregister();
         }
       });
+      caches.keys().then((keys) => {
+        let promises = [];
+        // キャッシュストレージを全て削除する
+        keys.forEach((cacheName) => {
+          if (cacheName) {
+            promises.push(caches.delete(cacheName));
+          }
+        });
+      });
     },
   },
 };
