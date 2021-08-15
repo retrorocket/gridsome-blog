@@ -44,7 +44,9 @@ export default {
           "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
         let sc = document.getElementsByTagName("script")[0];
         sc.parentNode.insertBefore(ad, sc);
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
+        [].forEach.call(document.querySelectorAll(".adsbygoogle"), () => {
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        });
         this.lazyloadads = true;
       }
     },
