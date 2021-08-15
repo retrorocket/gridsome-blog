@@ -60,6 +60,9 @@ export default {
       lazyloadads: false,
     };
   },
+  updated() {
+    this.lazyloadads = false;
+  },
   mounted() {
     this.lazyloadads = false;
     window.addEventListener("scroll", this.onScrollLoad);
