@@ -17,36 +17,10 @@
 
 <script>
 export default {
-  data() {
-    return {
-      lazyloadads: false,
-    };
-  },
   mounted() {
-    this.lazyloadads = false;
-    window.addEventListener("scroll", this.onScrollLoad);
     this.destroyServiceWorker();
   },
-  beforeDestroy() {
-    window.removeEventListener("scroll", this.onScrollLoad);
-  },
   methods: {
-    onScrollLoad() {
-      if (
-        (document.documentElement.scrollTop != 0 && !this.lazyloadads) ||
-        (document.body.scrollTop != 0 && !this.lazyloadads)
-      ) {
-        let ad = document.createElement("script");
-        ad.type = "text/javascript";
-        ad.async = true;
-        ad.id = "pagead2";
-        ad.src =
-          "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
-        let sc = document.getElementsByTagName("script")[0];
-        sc.parentNode.insertBefore(ad, sc);
-        this.lazyloadads = true;
-      }
-    },
     destroyServiceWorker() {
       navigator.serviceWorker.getRegistrations().then((registrations) => {
         for (let registration of registrations) {

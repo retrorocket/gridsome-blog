@@ -43,6 +43,7 @@
                   ad-format="rectangle"
                   ad-slot="1582513592"
                   ad-responsive="false"
+                  v-if="lazyloadads"
                 />
               </div>
               <div>
@@ -102,6 +103,7 @@
               ad-slot="3403340654"
               ad-responsive="true"
               ad-format="auto"
+              v-if="lazyloadads"
             />
           </p>
         </div>
@@ -192,6 +194,35 @@ export default {
     Headtitle,
     SearchBox,
     Yearslist,
+  },
+  data() {
+    return {
+      lazyloadads: false,
+    };
+  },
+  mounted() {
+    this.lazyloadads = false;
+    window.addEventListener("scroll", this.onScrollLoadAds);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.onScrollLoadAds);
+  },
+  methods: {
+    onScrollLoadAds() {
+      if (
+        !this.lazyloadads &&
+        (document.documentElement.scrollTop != 0 ||
+          document.body.scrollTop != 0)
+      ) {
+        let ad = document.createElement("script");
+        ad.async = true;
+        ad.src =
+          "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+        let sc = document.getElementsByTagName("script")[0];
+        sc.parentNode.insertBefore(ad, sc);
+        this.lazyloadads = true;
+      }
+    },
   },
 };
 </script>

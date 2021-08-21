@@ -117,6 +117,7 @@
                   ad-format="rectangle"
                   ad-slot="1582513592"
                   ad-responsive="false"
+                  v-if="lazyloadads"
                 />
               </div>
             </div>
@@ -141,6 +142,7 @@
               ad-slot="3403340654"
               ad-responsive="true"
               ad-format="auto"
+              v-if="lazyloadads"
             />
           </p>
         </div>
@@ -199,6 +201,7 @@ export default {
   },
   data() {
     return {
+      lazyloadads: false,
       pageId: 0,
       position: 0,
       offsetTops: [],
@@ -207,9 +210,12 @@ export default {
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.onScroll);
+    window.removeEventListener("scroll", this.onScrollLoadAds);
     this.observer.disconnect(this.$refs.entryContent);
   },
   mounted() {
+    this.lazyloadads = false;
+    window.addEventListener("scroll", this.onScrollLoadAds);
     this.zoomImg();
     this.twttrLoad();
     this.pageId = this.$page.blogPost.id;
@@ -236,6 +242,21 @@ export default {
           this.position = i;
           break;
         }
+      }
+    },
+    onScrollLoadAds() {
+      if (
+        !this.lazyloadads &&
+        (document.documentElement.scrollTop != 0 ||
+          document.body.scrollTop != 0)
+      ) {
+        let ad = document.createElement("script");
+        ad.async = true;
+        ad.src =
+          "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+        let sc = document.getElementsByTagName("script")[0];
+        sc.parentNode.insertBefore(ad, sc);
+        this.lazyloadads = true;
       }
     },
     createToc() {
