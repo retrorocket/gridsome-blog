@@ -19,16 +19,13 @@ export default {
         (document.documentElement.scrollTop != 0 ||
           document.body.scrollTop != 0)
       ) {
-        if (
-          !document.querySelector(
-            'script[src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9043961430295462"]'
-          )
-        ) {
+        const url =
+          "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9043961430295462";
+        if (!document.querySelector(`script[src="${url}"]`)) {
           let ad = document.createElement("script");
           ad.async = true;
           ad.setAttribute("crossorigin", "anonymous");
-          ad.src =
-            "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9043961430295462";
+          ad.src = url;
           let sc = document.getElementsByTagName("script")[0];
           sc.parentNode.insertBefore(ad, sc);
         }
