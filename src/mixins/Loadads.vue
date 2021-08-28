@@ -21,8 +21,9 @@ export default {
       ) {
         let ad = document.createElement("script");
         ad.async = true;
+        ad.crossorigin = "anonymous";
         ad.src =
-          "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+          "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9043961430295462";
         let sc = document.getElementsByTagName("script")[0];
         sc.parentNode.insertBefore(ad, sc);
         this.lazyloadads = true;
