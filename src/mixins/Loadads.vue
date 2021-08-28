@@ -19,13 +19,19 @@ export default {
         (document.documentElement.scrollTop != 0 ||
           document.body.scrollTop != 0)
       ) {
-        let ad = document.createElement("script");
-        ad.async = true;
-        ad.crossorigin = "anonymous";
-        ad.src =
-          "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9043961430295462";
-        let sc = document.getElementsByTagName("script")[0];
-        sc.parentNode.insertBefore(ad, sc);
+        if (
+          !document.querySelector(
+            'script[src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9043961430295462"]'
+          )
+        ) {
+          let ad = document.createElement("script");
+          ad.async = true;
+          ad.setAttribute("crossorigin", "anonymous");
+          ad.src =
+            "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9043961430295462";
+          let sc = document.getElementsByTagName("script")[0];
+          sc.parentNode.insertBefore(ad, sc);
+        }
         this.lazyloadads = true;
       }
     },

@@ -39,10 +39,10 @@
               <h4 class="widget-title">Sponsored Links</h4>
               <div>
                 <Adsense
-                  ad-style="display:inline-block;width:250px;height:250px"
-                  ad-format="rectangle"
-                  ad-slot="1582513592"
-                  ad-responsive="false"
+                  ad-style="display:block"
+                  ad-format="auto"
+                  ad-slot="4744746673"
+                  full-width-responsive="true"
                   v-if="lazyloadads"
                 />
               </div>
@@ -103,6 +103,7 @@
               ad-slot="3403340654"
               ad-responsive="true"
               ad-format="auto"
+              full-width-responsive="true"
               v-if="lazyloadads"
             />
           </p>
