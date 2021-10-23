@@ -1,0 +1,22 @@
+User-agent: *
+Disallow: /wp-includes/
+Disallow: /trackback/
+Disallow: /wp-admin/
+Disallow: /feed/
+Disallow: /index.php
+Disallow: /*.php$
+Disallow: /*.inc$
+Disallow: */feed/
+Disallow: */feed$
+Disallow: */trackback/
+Disallow: /page/
+Disallow: /*?replytocom=*
+Disallow: /*?q=*
+
+User-agent:Megalodon
+Disallow: /
+
+User-agent:ia_archiver
+Disallow: /
+
+Sitemap: https://retrorocket.biz/sitemap.xml
