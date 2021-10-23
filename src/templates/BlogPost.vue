@@ -340,6 +340,9 @@ export default {
   display: table;
 }
 .entry-content img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
   max-height: 350px;
 }
 .medium-zoom-overlay {
