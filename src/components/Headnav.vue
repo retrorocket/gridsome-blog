@@ -51,6 +51,7 @@
 export default {
   mounted() {
     window.addEventListener("scroll", this.onTouchStart);
+    this.destroyServiceWorker();
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.onTouchStart);
@@ -60,6 +61,22 @@ export default {
       if ("ontouchstart" in document.documentElement) {
         document.addEventListener("touchstart", () => {}, { passive: true });
       }
+    },
+    destroyServiceWorker() {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      });
+      caches.keys().then((keys) => {
+        let promises = [];
+        // キャッシュストレージを全て削除する
+        keys.forEach((cacheName) => {
+          if (cacheName) {
+            promises.push(caches.delete(cacheName));
+          }
+        });
+      });
     },
   },
 };
