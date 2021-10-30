@@ -5,7 +5,7 @@
     "build": "gridsome build",
     "develop": "gridsome develop",
     "explore": "gridsome explore",
-    "vercel-install": "git clone https://${GITHUB_ACCESS_TOKEN}@github.com/retrorocket/blog-contents.git --depth=1 ./content && yarn"
+    "vercel-install": "git clone https://${GITHUB_ACCESS_TOKEN}@github.com/retrorocket/blog-contents.git --depth=1 ./content && yarn install"
   },
   "dependencies": {
     "@gridsome/cli": "^0.3.4",
