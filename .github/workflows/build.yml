@@ -15,14 +15,14 @@ jobs:
     name: build
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repos
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Checkout other repo
         uses: actions/checkout@v2
         with:
-          submodules: recursive
+          repository: retrorocket/blog-contents
+          path: content
           token: ${{ secrets.PERSONAL_TOKEN }}
-      - name: Update submodule
-        run: |
-          git submodule update --remote --recursive
       - uses: actions/cache@v2
         with:
           path: '**/node_modules'
