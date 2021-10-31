@@ -18,7 +18,7 @@ jobs:
       - name: Checkout repos
         uses: actions/checkout@v2
         with:
-          submodule: recursive
+          submodules: recursive
           token: ${{ secrets.PERSONAL_TOKEN }}
       #- name: Update submodule
       #  run: |
