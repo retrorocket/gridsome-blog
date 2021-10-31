@@ -20,9 +20,9 @@ jobs:
         with:
           submodules: recursive
           token: ${{ secrets.PERSONAL_TOKEN }}
-      #- name: Update submodule
-      #  run: |
-      #    git submodule update --remote ./content/
+      - name: Update submodule
+        run: |
+          git submodule update --remote --recursive
       - uses: actions/cache@v2
         with:
           path: '**/node_modules'
