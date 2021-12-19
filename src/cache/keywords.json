@@ -1,5 +1,9 @@
 [
   {
+    "id": "google-api-oauth2-domain",
+    "keyword": "解決 Right Click to Calendar Edge Chromium 対応 詰ん https chrome google com webstore detail right click calendar femihkgadmhfmdlkjjfjcgleppfggadk hl ja 以前 ほしい 問い合わせ 受け Twitter よう 要望 見かけ 実装 いう 使用 でき 拡張 機能 API ある ため サポート いる ライブラリ 処理 置き換える 必要 あり api for Microsoft Development Docs docs microsoft jp edge extensions chromium developer guide support Google トー クン 取得 identity getAuthToken 予定 登録 こと 部分 launchWebAuthFlow どこ キャッシュ する 悩ん 以外 問題 動作 箇所 場合 リダイレクト URL chromiumapp org 指定 Chrome Developers reference method これ サービスプロバイダ 承認 画面 オプション 戻っ れる プロバイダ 本番 アプリ Cloud Platform ダッシュボード images 2021 12 19 23 21 49 png 説明 通り 追加 ドメイン Search Console 所有 確認 自分 所持 OAuth 同意 ガイド 書い …。 クライアント タイプ 含ま プロジェクト URI 関連付け られ ウェブ 済み JavaScript 生成 以上 アカウント 提供 すれ いい 未解決 拡張機能 トークン 部分以外 承認画面 本番用 登録画面 所有権 同意画面 関連付 承認済 生成元"
+  },
+  {
     "id": "vercel-private-git-submodules",
     "keyword": "Vercel プライベートリポジトリ submodule 使う https vercel com Node js 使っ ビルド する ブログ よう github retrorocket gridsome blog 内包 いる 場合 対処 知り メモ 残し おき 真面目 やる GitHub repo 参照 権限 ある Personal Access Token 発行 Environment Variables 登録 git status recursive コミット ハッシュ 取得 以下 実行 mkdir なっ ディレクトリ cd init remote add origin リポジトリ URL fetch depth reset hard FETCH HEAD 上記 package json yarn npm コマンド 経由 呼べる おく INSTALL COMMAND OVERRIDE こと 考え 思っ 検索 見つかり スクリプト 使え そう beeinger private how to guide for submodules やら master 最新 使用 ため 済ませ scripts install clone 倣っ インストール できる 対処法 参照権限"
   },
