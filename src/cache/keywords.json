@@ -1,5 +1,9 @@
 [
   {
+    "id": "bash-while-read-break-first-line",
+    "keyword": "シェル スクリプト Bash while read 最初 読ん break する 対処 京大 スパコン データ 77 TB 消失 バックアップ 処理 不具合 日本 ヒューレット・パッカード 100 弊社 責任 ITmedia NEWS https www itmedia co jp news articles 2112 29 040 html 話題 ニュース 発表 自分 改修 うまく 動か 箇所 調査 タイムリー 思っ むちゃくちゃ 苦しん メモ 残し おき やろ テキストファイル （` host list txt `） ホスト 記載 おり 読み込ん 既存 python pyscript コマンド ライン 引数 渡す 簡単 以下 実装 bash bin set eux HOST LIST do target done The problem is that work sh runs ssh commands and by default reads from stdin which your input file As result you only see the first line processed because command consumes rest of loop terminates デフォルト 標準 入力 読み込み 行う ため リダイレクト ファイル 中身 読み取り きっ しまう よう 知る わけ 仕様 今回 挙動 発生 回避 方法 原因 ）` 使用 対象 Each redirection may be preceded descriptor number instead word form varname In this case for each operator except shell will allocate greater than 10 assign it to 嫌い なり 良かっ シェルスクリプト 処理中 ヒューレット パッカード コマンドライン 最初以下 標準入力 回避方法"
+  },
+  {
     "id": "google-api-oauth2-domain",
     "keyword": "解決 Right Click to Calendar Edge Chromium 対応 詰ん https chrome google com webstore detail right click calendar femihkgadmhfmdlkjjfjcgleppfggadk hl ja 以前 ほしい 問い合わせ 受け Twitter よう 要望 見かけ 実装 いう 使用 でき 拡張 機能 API ある ため サポート いる ライブラリ 処理 置き換える 必要 あり api for Microsoft Development Docs docs microsoft jp edge extensions chromium developer guide support Google トー クン 取得 identity getAuthToken 予定 登録 こと 部分 launchWebAuthFlow どこ キャッシュ する 悩ん 以外 問題 動作 箇所 場合 リダイレクト URL chromiumapp org 指定 Chrome Developers reference method これ サービスプロバイダ 承認 画面 オプション 戻っ れる プロバイダ 本番 アプリ Cloud Platform ダッシュボード images 2021 12 19 23 21 49 png 説明 通り 追加 ドメイン Search Console 所有 確認 自分 所持 OAuth 同意 ガイド 書い …。 クライアント タイプ 含ま プロジェクト URI 関連付け られ ウェブ 済み JavaScript 生成 以上 アカウント 提供 すれ いい 未解決 拡張機能 トークン 部分以外 承認画面 本番用 登録画面 所有権 同意画面 関連付 承認済 生成元"
   },
