@@ -1,5 +1,9 @@
 [
   {
+    "id": "launchwebauthflow-destroy-edge",
+    "keyword": "Edge chrome identity launchWebAuthFlow 呼び出す クラッシュ する こと ある What kind of anti competitive behavior is this by MicrosoftEdge en using url it behaves weirdly based on the URL that you put If https co VOsXhCbbh as crashes whole browser mdash sharad pepsighan September 2021 Re Stable crashing extension function Microsoft Tech Community techcommunity microsoft com discussions edge stable 3027524 While developing for Browser cannot implement Google Sign In because www reddit comments pkqi 41 while 手元 再現 Right Click to Calendar 11 本番 アプリ Windows Pro 使っ ところ 開発 意味 不明 去年 直っ 修正 絶望 …？？？ 直せ 対応 オプション ページ 注意 書き 入れよ 現在 審査 開発用 意味不明 修正絶望的 オプションページ 注意書 現在審査中"
+  },
+  {
     "id": "chrome-extension-oauth2",
     "keyword": "Right Click to Calendar Edge Chromium 対応 Chrome ウェブストア https chrome google com webstore detail right click calendar femihkgadmhfmdlkjjfjcgleppfggadk hl ja 10 リリース ベータ 機能 記事 retrorocket biz archives api oauth domain リダイレクト URL chromiumapp org 登録 でき 詰ん ため 諦め OAuth クライアント サーバー 実装 設置 ソース コード 以下 公開 rc client main go at master github blob 処理 書い 気づい 指定 する 方式 拡張 Client Secret 書き込む こと なる 最初 使う 難しかっ しれ 秘匿 意見 secret 秘密 ブログ koduki hatenablog entry 2012 07 16 113204 Re jp blog 08 03 re 20 clientsecret 今後 自分 作る アプリ 作っ 漏洩 リスク ゼロ 近い 可能 おき 結論 余計 考え 取得 トー クン 管理 加味 identity launchWebAuthFlow 使い アクセストークン リフレッシュトークン オプション ページ 初回 あと 使っ 更新 とっ localStorage 保存 これ 仕方 割り切っ あたり develop app assets js tokenutil 不具合 報告 GitHub お願い Twitter メール 聞か 回答 スクショ なし 調査 難しい コスト リターン 金銭 もの なく 知識 側面 ない 思っ てる 基本 自身 issue 上げ いただけれ 限り 動作 確認 行っ Windows 11 pro 21 Microsoft バージョン 96 1054 62 公式 ビルド 64 ビット Vivaldi 2497 32 Stable channel bit 版機能 ソースコード 本当 秘密鍵 今後自分 トークン 拡張側 取得用 オプションページ 一度 不具合報告 金銭的 知識的 環報告 基本的 動作確認"
   },
