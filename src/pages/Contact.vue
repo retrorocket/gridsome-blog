@@ -50,7 +50,11 @@
                 required
               ></textarea>
               <input type="hidden" name="enablejs" v-model="enablejs" />
-              <input type="submit" value="Submit" :disabled="isSend" />
+              <input
+                type="submit"
+                value="Submit"
+                :disabled="isSend || !enablejs"
+              />
             </form>
             <p style="font-weight: bold" v-if="isProcessing">送信中...</p>
             <p style="font-weight: bold" v-if="isSend">
@@ -90,8 +94,11 @@ export default {
       name: "",
       email: "",
       text: "",
-      enablejs: "true",
+      enablejs: "",
     };
+  },
+  mounted() {
+    this.enablejs = "true";
   },
   methods: {
     async submit() {
