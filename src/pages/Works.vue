@@ -40,12 +40,6 @@
                 >
               </li>
               <li>
-                <a href="https://retrorocket.biz/list/"
-                  >TimeLine Copier &#8211;
-                  Twitterでフォローしてる人をリストにコピーするツール</a
-                >
-              </li>
-              <li>
                 <a href="https://retrorocket.biz/twimage/"
                   >Twitterに画像をPNGでアップロードするツール</a
                 >
@@ -109,6 +103,17 @@
                   </li>
                 </ul>
               </li>
+              <li>
+                <a href="https://retrorocket.biz/list/"
+                  >TimeLine Copier &#8211;
+                  Twitterでフォローしてる人をリストにコピーするツール</a
+                >
+                <ul>
+                  <li>
+                    Twitterでフォローしてる人やフォロワーをリストにコピーするツール。開発者のアカウント（とApp）からlists/members/create_allとlist/members/createの呼び出しがBANされてしまったので公開終了。
+                  </li>
+                </ul>
+              </li>
             </ul>
             <h4>GitHub</h4>
             <p>
@@ -129,8 +134,7 @@ export default {
       meta: [
         {
           name: "description",
-          content:
-            "自分の作成したツールについて。",
+          content: "自分の作成したツールについて。",
         },
       ],
     };
