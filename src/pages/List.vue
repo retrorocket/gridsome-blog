@@ -5,7 +5,8 @@
         <div class="entry-wrap">
           <header class="entry-header">
             <h1 class="entry-title" itemprop="headline">
-              TimeLine Copier - TimeLine to List（Twitterでフォローしてる人をリストにコピーするツール）について
+              TimeLine Copier - TimeLine to
+              List（Twitterでフォローしてる人をリストにコピーするツール）について
             </h1>
           </header>
           <!-- .entry-header -->
@@ -15,7 +16,7 @@
               List（Twitterでフォローしてる人をリストにコピーするツール）は、開発者（@retrorocket）が発行したTwitter
               App上からの”リストへのアカウント追加操作”がAPI v1.1,
               v2問わずすべてrefuseされ、Appの新規発行等の手段でも解消しなかったため、
-              2022/04/30をもって公開を終了しました。
+              <strong>2022/04/30をもって公開を終了しました。</strong>
               <br />
               本件に対して開発者から対処を行う予定はありません。
               長い間ご利用ありがとうございました。個人的にも思い入れがあるツールでした。
@@ -36,7 +37,8 @@ export default {
       meta: [
         {
           name: "description",
-          content: "TimeLine Copier - TimeLine to List（Twitterでフォローしてる人をリストにコピーするツール）はサービスを停止しました",
+          content:
+            "TimeLine Copier - TimeLine to List（Twitterでフォローしてる人をリストにコピーするツール）はサービスを停止しました",
         },
       ],
     };
