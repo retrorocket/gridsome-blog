@@ -2,8 +2,7 @@
   <Layout>
     <main class="content" id="content" role="main" itemprop="mainContentOfPage">
       <article
-        id="post-23"
-        class="entry page publish author-retrorocket post-23"
+        class="entry page publish author-retrorocket"
         itemscope="itemscope"
         itemtype="https://schema.org/CreativeWork"
       >
