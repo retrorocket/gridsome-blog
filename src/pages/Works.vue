@@ -110,7 +110,7 @@
                 >
                 <ul>
                   <li>
-                    Twitterでフォローしてる人やフォロワーをリストにコピーするツール。開発者のアカウント（とApp）からlists/members/create_allとlist/members/createの呼び出しがBANされてしまったので公開終了。
+                    Twitterでフォローしてる人やフォロワーをリストにコピーするツール。開発者のアカウント（とApp）からlists/members/create_allとlists/members/createの呼び出しがBANされてしまったので公開終了。
                   </li>
                 </ul>
               </li>
