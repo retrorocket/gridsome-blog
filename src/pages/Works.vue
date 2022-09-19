@@ -17,19 +17,6 @@
             <h4>Twitter関係でつくったものとか</h4>
             <ul>
               <li>
-                <a href="https://favico.retrorocket.biz/"
-                  >favico! &#8211; Twitterのアイコンをふぁぼれるサービス</a
-                >
-                <ul>
-                  <li>
-                    <a
-                      href="https://chrome.google.com/webstore/detail/favico-%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E6%8B%A1%E5%BC%B5/ffapgjhohfcjnpbpgbpobanpecoopiia"
-                      >Chrome ウェブストア &#8211; favico! ブラウザ拡張</a
-                    >
-                  </li>
-                </ul>
-              </li>
-              <li>
                 <a href="https://retrorocket.biz/fav/"
                   >あなたが一番ふぁぼってる人</a
                 >
@@ -77,6 +64,25 @@
                 <a href="https://tag.retrorocket.biz/"
                   >はっしゅたんぐら。 &#8211; twitter # to tumblr.</a
                 >
+              </li>
+            </ul>
+            <h4>公開を一時停止しているもの</h4>
+            <ul>
+              <li>
+                <a href="https://favico.retrorocket.biz/"
+                  >favico! &#8211; Twitterのアイコンをふぁぼれるサービス</a
+                >
+                <ul>
+                  <li>
+                    <a
+                      href="https://chrome.google.com/webstore/detail/favico-%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E6%8B%A1%E5%BC%B5/ffapgjhohfcjnpbpgbpobanpecoopiia"
+                      >Chrome ウェブストア &#8211; favico! ブラウザ拡張</a
+                    >
+                  </li>
+                  <li>
+                    色々思うところがあり公開を一時停止しています。自分がどうしても使いたくて作ったサービスなのでそのうち再開したいです。
+                  </li>
+                </ul>
               </li>
             </ul>
             <h4>公開終了</h4>
