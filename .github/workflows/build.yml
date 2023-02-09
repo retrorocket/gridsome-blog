@@ -25,7 +25,7 @@ jobs:
           token: ${{ secrets.PERSONAL_TOKEN }}
       - uses: actions/cache@v2
         with:
-          path: '**/node_modules'
+          path: '.yarn/cache'
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
       - name: Install packages
         run: yarn install
