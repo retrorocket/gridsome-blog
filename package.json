@@ -2,9 +2,9 @@
   "name": "my-blog",
   "private": true,
   "scripts": {
-    "build": "gridsome build",
-    "develop": "gridsome develop",
-    "explore": "gridsome explore",
+    "build": "NODE_OPTIONS='--openssl-legacy-provider' gridsome build",
+    "develop": "NODE_OPTIONS='--openssl-legacy-provider' gridsome develop",
+    "explore": "NODE_OPTIONS='--openssl-legacy-provider' gridsome explore",
     "vercel-install": "git clone https://${GITHUB_ACCESS_TOKEN}@github.com/retrorocket/blog-contents.git --depth=1 ./content && yarn install"
   },
   "dependencies": {
