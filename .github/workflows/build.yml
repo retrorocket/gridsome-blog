@@ -28,9 +28,9 @@ jobs:
           path: '.yarn/cache'
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
       - name: Install packages
-        run: yarn install
+        run: NODE_OPTIONS=--openssl-legacy-provider yarn install
       - name: Run build
-        run: yarn gridsome build > /dev/null
+        run: NODE_OPTIONS=--openssl-legacy-provider yarn gridsome build > /dev/null
       - name: rsync deployments
         uses: burnett01/rsync-deployments@4.1
         with:
