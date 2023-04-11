@@ -60,30 +60,6 @@
                   >mio chang Coupon Switcher</a
                 >
               </li>
-              <li>
-                <a href="https://tag.retrorocket.biz/"
-                  >はっしゅたんぐら。 &#8211; twitter # to tumblr.</a
-                >
-              </li>
-            </ul>
-            <h4>公開を一時停止しているもの</h4>
-            <ul>
-              <li>
-                <a href="https://favico.retrorocket.biz/"
-                  >favico! &#8211; Twitterのアイコンをふぁぼれるサービス</a
-                >
-                <ul>
-                  <li>
-                    <a
-                      href="https://chrome.google.com/webstore/detail/favico-%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E6%8B%A1%E5%BC%B5/ffapgjhohfcjnpbpgbpobanpecoopiia"
-                      >Chrome ウェブストア &#8211; favico! ブラウザ拡張</a
-                    >
-                  </li>
-                  <li>
-                    色々思うところがあり公開を一時停止しています。自分がどうしても使いたくて作ったサービスなのでそのうち再開したいです。
-                  </li>
-                </ul>
-              </li>
             </ul>
             <h4>公開終了</h4>
             <ul>
@@ -117,6 +93,32 @@
                 <ul>
                   <li>
                     Twitterでフォローしてる人やフォロワーをリストにコピーするツール。開発者のアカウント（とApp）からlists/members/create_allとlists/members/createの呼び出しがBANされてしまったので公開終了。
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="https://tag.retrorocket.biz/"
+                  >はっしゅたんぐら。 &#8211; twitter # to tumblr.</a
+                >
+                <ul>
+                  <li>
+                    20分おきくらいに、指定された#ハッシュタグがつけられたツイートと投稿時刻を取得し、自動でtumblr.に投稿するツール。TwitterのAPIが使用不可になったため公開終了。
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="https://favico.retrorocket.biz/"
+                  >favico! &#8211; Twitterのアイコンをふぁぼれるサービス</a
+                >
+                <ul>
+                  <li>
+                    <a
+                      href="https://chrome.google.com/webstore/detail/favico-%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E6%8B%A1%E5%BC%B5/ffapgjhohfcjnpbpgbpobanpecoopiia"
+                      >Chrome ウェブストア &#8211; favico! ブラウザ拡張</a
+                    >
+                  </li>
+                  <li>
+                    Twitterのアイコンをお気に入りに登録できるサービス。TwitterのAPIが使用不可になったためサービス終了。自分が使いたくて作ったサービスで思い入れが半端無かったため、自分が登録したお気に入り情報だけ残してあります。
                   </li>
                 </ul>
               </li>
