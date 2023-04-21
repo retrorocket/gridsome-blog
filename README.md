@@ -1,10 +1,12 @@
 # このプロジェクトは何？
 
-[Gridsome](https://gridsome.org/)を使用して、Markdownをソースにしてブログ記事をビルドしています。
+[Gridsome](https://gridsome.org/)を使用して、Markdownをソースにしてブログ記事をビルドしていました。
 
-## ブログのURL
+Gridsomeのリリースが2020年以降停滞していることもあり、このリポジトリもメンテを諦めました。Gridsomeはめちゃめちゃ好きなフレームワークなので頑張って欲しいです。
 
-* https://retrorocket.biz
+## プレビュー
+
+* https://gridsome-blog-git-master-retrorocket.vercel.app
 
 # Default starter for Gridsome
 
