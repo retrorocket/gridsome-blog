@@ -36,17 +36,18 @@
             class="widget_text widget widget-2 odd widget_custom_html"
           >
             <div class="widget_text widget-wrap">
-              <h4 class="widget-title">Sponsored Links</h4>
+              <h4 class="widget-title"><del>Sponsored Links</del></h4>
               <div>
-                <Adsense
+                <!-- <Adsense
                   ad-style="display:block"
                   ad-format="auto"
                   ad-slot="4744746673"
                   full-width-responsive="true"
                   v-if="lazyloadads"
-                />
+                /> -->
               </div>
               <div>
+                <!-- 
                 <a
                   href="https://www.amazon.co.jp/%E3%83%90%E3%83%B3%E3%83%80%E3%82%A4-BANDAI-7031400-%E3%83%A2%E3%83%B3%E3%82%B9%E3%83%BC%E3%83%8E-%E3%83%AD%E3%83%83%E3%82%AF/dp/B008B4AOSA/ref=as_li_ss_il?ie=UTF8&qid=1552906381&sr=8-4&keywords=%E3%83%A2%E3%83%B3%E3%82%B9%E3%83%BC%E3%83%8E&linkCode=li3&tag=retrorocket00-22&linkId=7da7f523b10f33f0177c5d3bfcea0a89&language=ja_JP"
                   target="_blank"
@@ -63,7 +64,7 @@
                 <a
                   href="https://www.amazon.co.jp/%E3%83%90%E3%83%B3%E3%83%80%E3%82%A4-BANDAI-7031400-%E3%83%A2%E3%83%B3%E3%82%B9%E3%83%BC%E3%83%8E-%E3%83%AD%E3%83%83%E3%82%AF/dp/B008B4AOSA/ref=as_li_ss_tl?ie=UTF8&qid=1552906381&sr=8-4&keywords=%E3%83%A2%E3%83%B3%E3%82%B9%E3%83%BC%E3%83%8E&linkCode=ll1&tag=retrorocket00-22&linkId=ac0f44818ff0a76e78dbf37b3141f135&language=ja_JP"
                   >モンスーノ ロック</a
-                >
+                > -->
               </div>
             </div>
           </section>
@@ -98,14 +99,14 @@
           <Credit />
           <p class="ad" style="clear: both; padding-top: 20px">
             <!-- 横長レスポンシブ -->
-            <Adsense
+            <!-- <Adsense
               ad-style="display:block"
               ad-slot="3403340654"
               ad-responsive="true"
               ad-format="auto"
               full-width-responsive="true"
               v-if="lazyloadads"
-            />
+            />-->
           </p>
         </div>
       </div>
@@ -186,10 +187,10 @@ import Headnav from "~/components/Headnav.vue";
 import Credit from "~/components/Credit.vue";
 import SearchBox from "~/components/SearchBox.vue";
 import Yearslist from "~/components/Yearslist.vue";
-import Loadads from "~/mixins/Loadads.vue";
+//import Loadads from "~/mixins/Loadads.vue";
 
 export default {
-  mixins: [Loadads],
+//  mixins: [Loadads],
   components: {
     Adsense,
     Headnav,

@@ -110,15 +110,15 @@
             class="widget_text widget widget-2 odd widget_custom_html"
           >
             <div class="widget_text widget-wrap">
-              <h4 class="widget-title">Sponsored Links</h4>
+              <h4 class="widget-title"><del>Sponsored Links</del></h4>
               <div>
-                <Adsense
+                <!-- <Adsense
                   ad-style="display:block"
                   ad-format="auto"
                   ad-slot="4744746673"
                   full-width-responsive="true"
                   v-if="lazyloadads"
-                />
+                /> -->
               </div>
             </div>
           </section>
@@ -137,14 +137,14 @@
           <Credit />
           <p class="ad" style="clear: both; padding-top: 20px">
             <!-- 横長レスポンシブ -->
-            <Adsense
+            <!-- <Adsense
               ad-style="display:block"
               ad-slot="3403340654"
               ad-responsive="true"
               ad-format="auto"
               full-width-responsive="true"
               v-if="lazyloadads"
-            />
+            />-->
           </p>
         </div>
       </div>
