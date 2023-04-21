@@ -5,7 +5,7 @@
     "build": "NODE_OPTIONS='--openssl-legacy-provider' gridsome build",
     "develop": "NODE_OPTIONS='--openssl-legacy-provider' gridsome develop",
     "explore": "NODE_OPTIONS='--openssl-legacy-provider' gridsome explore",
-    "vercel-install": "git clone https://retrorocket:${GITHUB_ACCESS_TOKEN}@github.com/retrorocket/blog-contents.git --depth=1 ./content && yarn@stable --activate && yarn set version 3.4.1 && yarn install"
+    "vercel-install": "git clone https://retrorocket:${GITHUB_ACCESS_TOKEN}@github.com/retrorocket/blog-contents.git --depth=1 ./content && npm install"
   },
   "dependencies": {
     "@gridsome/cli": "^0.3.4",
