@@ -19,7 +19,7 @@ export default {
         (document.documentElement.scrollTop != 0 ||
           document.body.scrollTop != 0)
       ) {
-        const url =
+        /*        const url =
           "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9043961430295462";
         if (!document.querySelector(`script[src="${url}"]`)) {
           let ad = document.createElement("script");
@@ -28,7 +28,7 @@ export default {
           ad.src = url;
           let sc = document.getElementsByTagName("script")[0];
           sc.parentNode.insertBefore(ad, sc);
-        }
+        } */
         this.lazyloadads = true;
       }
     },
