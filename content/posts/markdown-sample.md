@@ -48,9 +48,9 @@ determines the header level.)
 
 ### Images
 
-Images are added with `![Image Alt](./images/image.jpg)`
+Images are added with `![Image Alt](./images/computer_hub_loop_setsuzoku.png)`
 
-![Image](./images/alexandr-podvalny-220262-unsplash.jpg)
+![Image](./images/computer_hub_loop_setsuzoku.png)
 
 ### Blockquotes
 
