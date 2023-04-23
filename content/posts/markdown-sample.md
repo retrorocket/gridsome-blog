@@ -1,6 +1,6 @@
 ---
 title: "Markdown test file"
-author: りゅー
+author: sample
 type: post
 date: 2023-02-02T21:35:00+09:00
 excerpt: "Markdown test file"
